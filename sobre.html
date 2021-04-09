@@ -1,35 +1,171 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="./img/ico.png" />
-    <link rel="stylesheet" type="text/css" href="./css/styleSobre.css">
-    <title>Elilus - Sobre</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/png" href="./img/ico.png" />
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Zilla+Slab+Highlight:wght@700&display=swap" rel="stylesheet">
+	<title>Elilus - Sobre</title>
+
+    <style>
+        main{
+            margin-top: 25px;
+            margin-left: 300px;
+            margin-right: 300px;
+            margin-bottom: 100px;
+            height: 900px;
+            position: relative;
+        }
+
+        .Elilus{
+            max-width: 650px;
+            margin-right: 25px;
+            display: block;
+            float: left;
+        }
+
+        .text{
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: justify;
+            display: block;
+        }
+
+        .text h3{
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        hr {
+            display: block;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: solid;
+            background-color: black;
+            border-width: 1.5px;
+            width: 250px;
+        }
+
+        .text p{
+            margin-top: 20px;
+            text-indent:4em;
+        }
+
+        .map{
+            display: block;
+            float: right;
+            margin-top: 70px;
+        }
+
+        .entreContato{
+            margin-top: 70px;
+            display: block;
+            width: 500px;
+            height: 400px;
+            border: 2px black;
+            border-style: solid;
+        }
+
+        .entreContato h3{
+            font-family: Arial;
+            margin-top: 15px;
+            text-align: center;
+            
+        }
+        /*FOOTER*/
+        footer{
+            top: 0;
+            bottom: 0; 
+            right: 0;
+            left: 0;
+            background-color: rgba(128, 31, 31, 0.781);
+        }
+
+        .conteinerFooter{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            color: white;
+        }
+
+        .tel p, .email p{
+            font-size: 24px;
+            display: block;
+            padding-left: 15px;
+        }
+
+        .copyright{
+            text-align: center;
+            min-height: 100%;
+            padding-bottom: 15px;
+        }
+        
+        @media screen and (max-width: 767px){
+            .top{
+                display:inline-block;
+                text-align: center;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .logo{
+                margin-left: auto;
+                margin-right: auto;
+                align-items: center;
+                display: block;
+            }
+
+            .nav{
+                margin-left: auto;
+                margin-right: auto;
+                align-items: center;
+                display: inline-block;
+                position: absolute;
+            }
+
+            .search{
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .nav ul li{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
 
-    <header class="header">
+	<header class="header">
 
-        <div class="top">
-            <img src="./img/Elilus banner.png" alt="Elilus Esquadrias de Alumínio" class="logo">
-            <nav class="nav">
-                <div class="search">
-                    <input type="text" id="txtSearch" placeholder="Buscar...">
-                    <div> <button id="btnSearch"><img src="./img/vectorlupa.png" alt="Buscar..."></button></div>
-                </div>
-                <div class="navMenu">
-                    <ul class="menu">
-                        <li><a href="./index.html">Inicial</a></li>
-                        <li><a href="./catalogo.html">Catálogo</a></li>
-                        <li><a href="./fotos.html">Fotos</a></li>
-                        <li><a href="./sobre.html">Sobre</a></li>
-                    </ul>
-            </div>
-            </nav>
-        </div>
-    </header>
+		<div class="top">
+			<img src="./img/Elilus banner.png" alt="Elilus Esquadrias de Alumínio" class="logo">
+			<nav class="nav">
+				<div class="search">
+					<input type="text" id="txtSearch" placeholder="Buscar...">
+					<div> <button id="btnSearch"><img src="./img/vectorlupa.png" alt="Buscar..."></button></div>
+				</div>
+				<div class="navMenu">
+					<ul class="menu">
+						<li><a href="./index.html">Inicial</a></li>
+						<li><a href="./catalogo.html">Catálogo</a></li>
+						<li><a href="./fotos.html">Fotos</a></li>
+						<li><a href="./sobre.html">Sobre</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</header>
 
     <main>
         <h2 style="color: brown; text-align:center; font-size: 42px; margin-bottom: 45px;">SOBRE</h2>
@@ -42,9 +178,11 @@
             </p><br>
             <p style="text-align: center; text-indent: 0em;">A <strong>Elilus Esquadrias</strong> busca a <strong>excelência</strong> em seus serviços e na satisfação de seus clientes!</p>
         </div>
+        <!--Google Maps - BEGIN -->
         <div class="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1249.8440679270807!2d-52.37738932062296!3d-27.621640441430873!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e33ff802c22541%3A0xd98af1236e2269f3!2sElilus%20Esquadrias%20de%20Alum%C3%ADnio!5e0!3m2!1sen!2sbr!4v1616786524134!5m2!1sen!2sbr" title="GoogleMaps" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
+        <!--Google Maps - END -->
         <div class="entreContato">
             <h3>Entre em contato:<h3>
             <form action="POST">
@@ -63,4 +201,6 @@
         </footer>
     </body>
     <script type="text/javascript" src="./js/script.js"></script>
+    <!--Bootstrap-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </html>
