@@ -12,58 +12,24 @@ body{
     font-family: 'avantGarde', Arial, Helvetica, sans-serif;
 }
 
-.header{
-    min-width: 60px;
-    height: 175px;
-    width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.top{
-    display: flex;
-    align-items: center;
-}
-
 .logo{
     display: inline-block;
-    margin-right: 100px;
+    margin-right: 85px;
     max-width: 300px;
 }
 
-.nav{
-    flex-direction: column;
+.nav-link:hover {
+    text-decoration: underline;
 }
-
-.search{
-    border: solid 2px black;
-    width:450px;
-    height:36px;
-    margin-bottom: 10px;
-}
-
-#txtSearch{
-    border: none;
-    background-color: transparent;
-    padding-left: 5px;
-    height:32px;
-    width: 375px;
-    float: left;
-}
-
-#txtSearch, input[type=text]:focus {
-    outline: none;
-  }
 
 #btnSearch{
-    border:none;
-    height:32px;
-    width:70px;
     background-color: brown;
+    border:none;
+    color: #ffffff;
     display: block;
     float: right;
     transition-duration: 0.4s;
+    width:70px;
 }
 
 #btnSearch:hover {
@@ -71,22 +37,30 @@ body{
     cursor: pointer;
 }
 
-.nav ul{
-    width: 455px;
-    padding: 0px;
-    margin: 0px;
-    text-align: justify;
-    list-style: none;
+.titlePage {
+    color: brown; 
+    font-family: 'Mogra', cursive;
+    font-size: 42px; 
+    margin-bottom: 35px;
+    text-align:center; 
 }
 
-.nav ul li{
-    display: inline-block;
-    margin-left: 15px;
-    margin-right: 15px;    
+.subtitlePage {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-.nav a{
-    color: brown;
-    font-size: 1.5rem;
-    text-decoration: none;
+@media screen and (max-width: 485px) {
+    .logo {
+        margin-right: 60px;
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width: 365px){
+    .logo {
+        margin-right: 20px;
+        max-width: 100px;
+    }
 }

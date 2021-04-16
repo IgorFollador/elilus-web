@@ -7,140 +7,83 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" type="image/png" href="./img/ico.png" />
 	<link rel="stylesheet" type="text/css" href="./css/style.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"	integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Zilla+Slab+Highlight:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Zilla+Slab+Highlight:wght@700&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" rel="stylesheet">
 	<title>Elilus Esquadrias</title>
 
 	<style>
-	main{
-    margin-left: 12%;
-    margin-right: 12%;
-    margin-bottom: 100px;
-	}
+		.carousel-caption {
+			align-items: center;
+			margin-bottom: 20px;
+		}
 
-	.carousel-caption {
-		align-items: center;
-		margin-bottom: 20px;
-	}
-
-	.carousel-title {
-		background-color: rgba(46, 46, 46, 0.38);
-		color: #fdfdfd;
-		font-family: 'Fredoka One', cursive;
-		font-size: 3rem;
-	}
-
-/* .container1{
-    width: 100%;
-    height: 300px;
-    margin-top: 25px;
-    background-image: url('/img/banner2.png');
-    background-size: cover;
-    background-position-y: -50px;
-    background-repeat: no-repeat;
-    position: relative;
-} 
-
-.container1, p{
-    font-size: 40px ;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
-.facebook{
-    width: 500px;
-    height: 700px;
-    margin-top: 40px;
-}
+		.carousel-title {
+			background-color: rgba(46, 46, 46, 0.38);
+			color: #fdfdfd;
+			font-family: 'Fredoka One', cursive;
+			font-size: 3rem;
+		}
 
 
-/*FOOTER*/
-footer{
-    top: 0;
-    bottom: 0; 
-    right: 0;
-    left: 0;
-    background-color: rgba(128, 31, 31, 0.781);
-}
+		/* .facebook {
+            width: 500px;
+            height: 700px;
+            text-align: center;
+            margin-top: 40px;
+        } */
 
-.conteinerFooter{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    color: white;
-}
 
-.tel p, .email p{
-    font-size: 24px;
-    display: block;
-    padding-left: 15px;
-}
+		/*FOOTER*/
+		footer {
+			background-color: rgba(128, 31, 31, 0.781);
+		}
 
-.copyright{
-    text-align: center;
-    min-height: 100%;
-    padding-bottom: 15px;
-}
+		.containerFooter {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 12px;
+			color: white;
+		}
 
-@media screen and (max-width: 767px){
-    .top{
-        display:inline-block;
-        text-align: center;
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-    }
+		.tel p,
+		.email p {
+			font-size: 24px;
+			display: block;
+			padding-left: 15px;
+		}
 
-    .logo{
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
-        display: block;
-    }
+		.copyright {
+			text-align: center;
+			min-height: 100%;
+			padding-bottom: 15px;
+		}
 
-    .nav{
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
-        display: inline-block;
-        position: absolute;
-    }
+		.teste {
+			border: #000 solid;
+			border-radius: 10px;
+			height: 300px;
+			margin-bottom: 30px;
+		}
 
-    .search{
-        opacity: 0;
-        visibility: hidden;
-    }
+		.container-fluid {
+			width: auto;
+		}
 
-    .nav ul li{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
+		/* @media screen and (max-width: 485px) {
 
-    .main{
-        margin-top: 125px;
-        left: 0px;
-        right: 0px;
-        height: auto;
-    }
+            .facebook {
+                width: auto;
+                height: auto;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            } 
 
-    .container1, p{
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-    
-    .facebook{
-        width: auto;
-        height: auto;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-}
+        } */
 	</style>
 </head>
 
@@ -148,37 +91,47 @@ footer{
 
 	<header class="header">
 
-		<div class="top">
-			<img src="./img/Elilus banner.png" alt="Elilus Esquadrias de Alumínio" class="logo">
-			<nav class="nav">
-				<div class="search">
-					<input type="text" id="txtSearch" placeholder="Buscar...">
-					<div> <button id="btnSearch"><img src="./img/vectorlupa.png" alt="Buscar..."></button></div>
-				</div>
-				<div class="navMenu">
-					<ul class="menu">
-						<li><a href="./index.html">Inicial</a></li>
-						<li><a href="./catalogo.html">Catálogo</a></li>
-						<li><a href="./fotos.html">Fotos</a></li>
-						<li><a href="./sobre.html">Sobre</a></li>
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container-fluid">
+				<img class="navbar-brand logo" href="#" src="./img/Elilus banner.png" />
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+					aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarScroll">
+					<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="./index.html">Inicial</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./catalogo.html">Catálogo</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./fotos.html">Fotos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./sobre.html">Sobre</a>
+						</li>
 					</ul>
+					<form class="d-flex ms-4">
+						<input class="form-control me-1" type="search" placeholder="Buscar..." aria-label="Search">
+						<button class="btn" id="btnSearch" type="submit"><img src="./img/vectorlupa.png" alt="Buscar..."></button>
+					</form>
 				</div>
-			</nav>
-		</div>
+			</div>
+		</nav>
+
 	</header>
-	<main>
+	<main class="container mt-3">
 		<!-- Banner Rotativo - BEGIN -->
 
 		<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
 					aria-current="true" aria-label="Slide 1"></button>
-				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-					aria-label="Slide 2"></button>
-				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-					aria-label="Slide 3"></button>
-				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
-					aria-label="Slide 4"></button>
+				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
 			</div>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
@@ -194,34 +147,36 @@ footer{
 					<img src="img/ajBanner04.jpg" class="d-block w-100" alt="Banner04">
 				</div>
 			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-				data-bs-slide="prev">
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
+				<span class="visually-hidden">Anterior</span>
 			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-				data-bs-slide="next">
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
+				<span class="visually-hidden">Próximo</span>
 			</button>
 		</div>
 
 		<!-- Banner Rotativo - END -->
 
 		<div class="facebook">
-			<!--Facebook page - BEGIN-->
-			<div class="fb-page" data-href="https://www.facebook.com/elilusesquadrias/" data-tabs="timeline" data-width="450"
-				data-height="700" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false"
-				data-show-facepile="true">
-				<blockquote cite="https://www.facebook.com/elilusesquadrias/" class="fb-xfbml-parse-ignore"><a
-						href="https://www.facebook.com/elilusesquadrias/">Elilus Esquadrias de Aluminio</a></blockquote>
-			</div>
-			<div id="fb-root"></div>
-			<!--Facebook page - END-->
+			<!--Facebook page - BEGIN
+            <div class="fb-page" data-href="https://www.facebook.com/elilusesquadrias/" data-tabs="timeline"
+                data-small-header="false" data-adapt-container-width="true"
+                data-hide-cover="false" data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/elilusesquadrias/" class="fb-xfbml-parse-ignore"><a
+                        href="https://www.facebook.com/elilusesquadrias/">Elilus Esquadrias de Aluminio</a></blockquote>
+            </div>
+            <div id="fb-root"></div>
+            Facebook page - END-->
+		</div>
+
+		<div class="teste mt-4">
+			<h2 style="color: #999;">Restante da página</h2>
 		</div>
 	</main>
 
-	<footer class="conteinerFooter">
+	<footer class="containerFooter">
 		<div class="tel">
 			<p>(054) 99945-5536</p>
 		</div>
@@ -238,8 +193,10 @@ footer{
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v10.0"
 		nonce="Lb3ewnlB"></script>
 	<!--Bootstrap-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+		crossorigin="anonymous"></script>
+
 </body>
 
 </html>
