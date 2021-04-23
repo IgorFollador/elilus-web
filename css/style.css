@@ -51,6 +51,120 @@ body{
     margin-bottom: 15px;
 }
 
+/*FOOTER*/
+footer {
+    background-color: rgba(165, 42, 42, 0.747);
+    color: white;
+    padding-top: 30px;
+}
+
+footer .footer-logo{
+    max-width: 250px;
+}
+
+footer .footer-copyright {
+    background-color: rgba(90, 22, 22, 0.644);
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+footer .row {
+    margin-bottom: 60px;
+}
+
+footer .navbar-brand {
+    margin-top: 45px;
+    height: 65px;
+}
+
+footer .footer-copyright p {
+    margin: 10px;
+    color: #ccc;
+}
+
+footer ul {
+    list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+}
+
+footer h5 {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+footer h2 a{
+    font-size: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+footer a {
+    color: #d2d1d1;
+    text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+    text-decoration: none;
+    color: white;
+}
+
+footer .social-networks {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 16px;
+}
+
+footer .social-networks a {
+    font-size: 32px;
+    color: #f9f9f9;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+footer .social-networks a:hover {
+    text-decoration: none;
+}
+
+footer .facebook:hover {
+    color: #0077e2;
+}
+
+footer .instagram:hover {
+    color: purple;
+}
+
+footer .mail:hover {
+    color: rgb(156, 46, 35);
+}
+
+footer .btn {
+    color: white;
+    background-color: #d84b6b;
+    border-radius: 20px;
+    border: none;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    line-height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    footer {
+        text-align: center;
+    }
+}
+
+footer{
+flex: 0 0 auto;
+-webkit-flex: 0 0 auto;
+}
+
 @media screen and (max-width: 485px) {
     .logo {
         margin-right: 60px;
