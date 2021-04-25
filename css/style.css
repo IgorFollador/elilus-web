@@ -39,7 +39,7 @@ body{
 
 .titlePage {
     color: brown; 
-    font-family: 'Mogra', cursive;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 42px; 
     margin-bottom: 35px;
     text-align:center; 
@@ -53,9 +53,14 @@ body{
 
 /*FOOTER*/
 footer {
-    background-color: rgba(165, 42, 42, 0.747);
+    background-color: rgba(138, 31, 31, 0.747);
     color: white;
     padding-top: 30px;
+}
+
+footer {
+    flex: 0 0 auto;
+    -webkit-flex: 0 0 auto;
 }
 
 footer .footer-logo{
@@ -134,17 +139,13 @@ footer .facebook:hover {
     color: #0077e2;
 }
 
-footer .instagram:hover {
-    color: purple;
-}
-
 footer .mail:hover {
     color: rgb(156, 46, 35);
 }
 
 footer .btn {
     color: white;
-    background-color: #d84b6b;
+    background-color: #801f1f;
     border-radius: 20px;
     border: none;
     width: 150px;
@@ -158,11 +159,6 @@ footer .btn {
     footer {
         text-align: center;
     }
-}
-
-footer{
-flex: 0 0 auto;
--webkit-flex: 0 0 auto;
 }
 
 @media screen and (max-width: 485px) {
