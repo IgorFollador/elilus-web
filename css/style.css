@@ -51,6 +51,24 @@ body{
     margin-bottom: 15px;
 }
 
+/*MODAL Login/Sign*/
+.modal-title{
+    font-size: 25px;
+}
+
+.required:after {
+    content:" *"; 
+    color: red;
+  }
+
+.close{
+    top: -10px;
+    text-align: center;
+    border-style: none;
+    background-color: white;
+    font-size: 25px;
+}
+
 /*FOOTER*/
 footer {
     background-color: rgba(138, 31, 31, 0.747);
