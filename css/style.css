@@ -23,13 +23,17 @@ body{
 }
 
 #btnSearch{
-    background-color: brown;
+    background-color: rgb(165, 42, 42);
     border:none;
-    color: #ffffff;
+    color: rgb(255, 255, 255);
     display: block;
     float: right;
     transition-duration: 0.4s;
     width:70px;
+}
+
+#navbarScroll form {
+    margin-left: 23px;
 }
 
 #btnSearch:hover {
@@ -37,8 +41,12 @@ body{
     cursor: pointer;
 }
 
+#btnModal {
+    margin-left: 3rem;;
+}
+
 .titlePage {
-    color: brown; 
+    color: rgb(165, 42, 42); 
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 42px; 
     margin-bottom: 35px;
@@ -58,21 +66,21 @@ body{
 
 .required:after {
     content:" *"; 
-    color: red;
+    color: rgb(255, 0, 0);
   }
 
 .close{
     top: -10px;
     text-align: center;
     border-style: none;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     font-size: 25px;
 }
 
 /*FOOTER*/
 footer {
     background-color: rgba(138, 31, 31, 0.747);
-    color: white;
+    color: rgb(255, 255, 255);
     padding-top: 30px;
 }
 
@@ -103,7 +111,7 @@ footer .navbar-brand {
 
 footer .footer-copyright p {
     margin: 10px;
-    color: #ccc;
+    color: rgb(204, 204, 204);
 }
 
 footer ul {
@@ -114,7 +122,7 @@ footer ul {
 
 footer h5 {
     font-size: 18px;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     margin-top: 30px;
 }
@@ -122,18 +130,18 @@ footer h5 {
 footer h2 a{
     font-size: 50px;
     text-align: center;
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 
 footer a {
-    color: #d2d1d1;
+    color: rgb(210, 209, 209);
     text-decoration: none;
 }
 
 footer a:hover,
 footer a:focus {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 footer .social-networks {
@@ -144,7 +152,7 @@ footer .social-networks {
 
 footer .social-networks a {
     font-size: 32px;
-    color: #f9f9f9;
+    color: rgb(249, 249, 249);
     padding: 10px;
     transition: 0.2s;
 }
@@ -154,7 +162,7 @@ footer .social-networks a:hover {
 }
 
 footer .facebook:hover {
-    color: #0077e2;
+    color: rgb(0, 119, 226);
 }
 
 footer .mail:hover {
@@ -162,8 +170,8 @@ footer .mail:hover {
 }
 
 footer .btn {
-    color: white;
-    background-color: #801f1f;
+    color: rgb(0, 0, 0);
+    background-color: rgb(165, 42, 42);
     border-radius: 20px;
     border: none;
     width: 150px;
@@ -171,6 +179,22 @@ footer .btn {
     margin: 0 auto;
     margin-top: 10px;
     line-height: 25px;
+}
+
+footer .btn:hover {
+    color: rgb(249, 249, 249);
+    background-color: rgb(119, 1, 1);
+}
+
+@media screen and (max-width: 991px) {
+    #navbarScroll form {
+        margin-left: 0;
+    }
+
+    #btnModal {
+        margin-left: 0;
+        margin: 15px calc(50% - 68px);
+    }
 }
 
 @media screen and (max-width: 767px) {
