@@ -138,33 +138,37 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body">
+					<div id="registerSign" class="modal-body">
 						<form method="POST">
 							<div class="form-group mb-3">
 								<label class="required" for="name">Nome</label>
-								<input type="text" class="form-control" id="name" placeholder="Digite seu nome">
+								<input type="text" class="form-control" id="nameCad" placeholder="Digite seu nome">
+								<span id="erroName"> Preencha com um nome válido!</span>
 							</div>
 							<div class="form-group mb-3">
 								<label for="lastname">Sobrenome</label>
-								<input type="text" class="form-control" id="lastname"
+								<input id="lastname" type="text" class="form-control" 
 									placeholder="Digite seu sobrenome">
 							</div>
 							<div class="form-group mb-3">
 								<label class="required" for="email">Email</label>
-								<input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+								<input type="email" class="form-control" id="emailCad" aria-describedby="emailHelp"
 									placeholder="Digite seu email">
+								<span id="erroEmail"> Preencha com um email válido!</span>
 							</div>
 							<div class="form-group mb-3">
 								<label class="required" for="password">Senha</label>
-								<input type="password" class="form-control" id="password"
+								<input id="passwordCad" type="password" class="form-control"
 									placeholder="Digite sua senha">
+								<span id="erroPass"> Preencha com um senha válido!</span>
 							</div>
 							<div class="form-group mb-3">
 								<label class="required" for="password">Repita sua senha</label>
-								<input type="password" class="form-control" id="password"
+								<input id="repeatPassword" type="password" class="form-control" 
 									placeholder="Digite sua senha novamente">
+								<span id="erroRepeatPass"> As senhas não conferem!</span>
 							</div>
-							<button type="submit" class="btn btn-primary">Cadastrar</button>
+							<button id="btnSign" type="submit" class="btn btn-primary">Cadastrar</button>
 						</form>
 					</div>
 					<div class="modal-footer">

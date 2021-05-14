@@ -44,6 +44,24 @@ app.post('/sendMail', express.json(), (req,res) => {
     })
 });
 
+// app.post('/sign', express.json(), (req,res) => {
+//     let email = req.body.Email;
+//     let name = req.body.Name;
+//     let lastname  = req.body.LastName;
+//     let pass =  req.body.Password;
+
+//     console.log(email);
+//     console.log(pass);
+//     console.log(name);
+//     console.log(lastname);
+//     then(info=>{
+//             console.log(info);
+//             res.send("Usuário cadastrado com sucesso!");
+//     }).catch(error=>{
+//         console.log(error); 
+//         res.send("Não foi possivel cadastrar o usuário!")
+//     })
+// });
 
 app.listen(port, ()=>{
     console.log("Server running on port %s", port);

@@ -77,6 +77,22 @@ body{
     font-size: 25px;
 }
 
+#registerSign input {
+    border: 1px solid rgb(136, 136, 136);
+    border-radius: 5px;
+    margin-top: 7px;
+    width: 100%;
+}
+
+#registerSign span {
+    display: none;
+    color: rgb(255, 0, 0);
+}
+
+#registerSign input::placeholder {
+    color: rgb(187, 187, 187);
+}
+
 /*FOOTER*/
 footer {
     background-color: rgba(138, 31, 31, 0.747);
