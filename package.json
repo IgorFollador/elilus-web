@@ -1,0 +1,26 @@
+{
+  "name": "elilusweb",
+  "version": "1.0.0",
+  "description": "Backend for website Elilus",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev_start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorFollador/elilusWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgorFollador/elilusWeb/issues"
+  },
+  "homepage": "https://github.com/IgorFollador/elilusWeb#readme",
+  "dependencies": {
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "nodemailer": "^6.6.0"
+  }
+}
