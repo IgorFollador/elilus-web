@@ -92,7 +92,7 @@ btnSign.addEventListener('click', function() {
         "Email": inputEmailCad.value,
         "Password": inputPass.value
     };
-    
+    objCadastro = JSON.parse(JSON.stringify(objCadastro));
     console.log(objCadastro);
     //sendSign(objCadastro);
 });
