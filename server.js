@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const app = express();
+const db = require("./mysql");
+
 
 require('dotenv').config();
 let port = process.env.PORT;
@@ -44,24 +46,28 @@ app.post('/sendMail', express.json(), (req,res) => {
     })
 });
 
-// app.post('/sign', express.json(), (req,res) => {
-//     let email = req.body.Email;
-//     let name = req.body.Name;
-//     let lastname  = req.body.LastName;
-//     let pass =  req.body.Password;
+app.post('/sign', express.json(), (req,res) => {
+    let name = req.body.Name;
+    let lastname = req.body.LastName;
+    let email = req.body.Email;
+    let pass =  req.body.Password;
 
-//     console.log(email);
-//     console.log(pass);
-//     console.log(name);
-//     console.log(lastname);
-//     then(info=>{
-//             console.log(info);
-//             res.send("Usuário cadastrado com sucesso!");
-//     }).catch(error=>{
-//         console.log(error); 
-//         res.send("Não foi possivel cadastrar o usuário!")
-//     })
-// });
+    console.log(name);
+    console.log(lastname);
+    console.log(email);
+    console.log(pass);
+    
+    (async () => {
+        const result = await db.insertCustomer({NOME: name, SOBRENOME: lastname, EMAIL: email, SENHA: pass}); 
+        console.log(result);
+    })().then(info=>{
+        console.log(info);
+        res.send("Usuário cadastrado com sucesso!");
+    }).catch(error=>{
+        console.log(error); 
+        res.send("Não foi possivel cadastrar o usuário!")
+    });
+});
 
 app.listen(port, ()=>{
     console.log("Server running on port %s", port);

@@ -21,6 +21,7 @@
   "dependencies": {
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
+    "mysql2": "^2.2.5",
     "nodemailer": "^6.6.0"
   }
 }

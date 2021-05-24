@@ -88,29 +88,28 @@ function ativaSubmit() {
 btnSign.addEventListener('click', function() {
     let objCadastro = {
         "Name": inputNameCad.value,
-        "LastName": inputLastnameCad,
+        "LastName": inputLastnameCad.value,
         "Email": inputEmailCad.value,
-        "Password": inputPass.value
+        "Password": inputPassCad.value
     };
-    objCadastro = JSON.parse(JSON.stringify(objCadastro));
-    console.log(objCadastro);
-    //sendSign(objCadastro);
+    sendSign(objCadastro);
 });
 
-// function sendSign(obj) {
+function sendSign(obj) {
 
-//     const options = {
-//         method: "POST",
-//         headers: new Headers({'content-type': 'application/json'}),
-//         body: JSON.stringify(obj)
-//     }
+    const options = {
+        method: "POST",
+        headers: new Headers({'content-type': 'application/json'}),
+        body: JSON.stringify(obj)
+    }
 
-//     fetch("http://localhost:3000/sign", options).then(res =>{
-//         console.log(res);
-//         alert("Usuário cadastrado com sucesso!");
-//         location.reload();
-//     }).catch(error=>{
-//         console.log(error);
-//         alert("Infelizmente não foi possivel cadastrar o usuário!");
-//     });
-// }
+    fetch("http://localhost:3000/sign", options).then(res =>{
+        console.log(res);
+        alert("Usuário cadastrado com sucesso!");
+        location.reload();
+    }).catch(error=>{
+        console.log(error);
+        alert("Infelizmente não foi possivel cadastrar o usuário!");
+    });
+}
+
