@@ -1,4 +1,8 @@
 var btnSign = document.querySelector("#btnSign");
+var btnLogin = document.querySelector("#btnLogin"); 
+
+var inputEmailLogin = document.querySelector("#email"); 
+var inputPassLogin = document.querySelector("#password");
 
 var inputNameCad = document.querySelector("#nameCad");
 var inputLastnameCad = document.querySelector("#lastname");
