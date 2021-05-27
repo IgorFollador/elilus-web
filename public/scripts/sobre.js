@@ -101,7 +101,7 @@ function sendMail(obj) {
         body: JSON.stringify(obj)
     }
 
-    fetch("http://localhost:3000/sendMail", options).then(res =>{
+    fetch("http://localhost:3000/user/sendMail", options).then(res =>{
         console.log(res);
         alert("Mensagem enviada com sucesso!\nEntraremos em contato...");
         location.reload();

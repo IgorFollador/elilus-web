@@ -107,7 +107,7 @@ function sendSign(obj) {
         body: JSON.stringify(obj)
     }
 
-    fetch("http://localhost:3000/sign", options).then(res =>{
+    fetch("http://localhost:3000/user/register", options).then(res =>{
         console.log(res);
         alert("Usuário cadastrado com sucesso!");
         location.reload();
