@@ -5,6 +5,7 @@ module.exports = {
   username: 'root',
   password: '',
   database: 'elilusdb',
+  logging: false,
   define: {
     timestamps: true,
     underscored: true,

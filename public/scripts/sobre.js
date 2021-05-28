@@ -84,13 +84,14 @@ function ativaSubmit() {
 btnEntraContato.addEventListener('click', function(){
 
     let objContato = {
-        "Name": inputName.value,
-        "Email": inputEmail.value,
-        "Telephone": inputTelephone.value,
-        "Message": inputMessage.value
+        "name": inputName.value,
+        "email": inputEmail.value,
+        "telephone": inputTelephone.value,
+        "message": inputMessage.value
     };
     
     sendMail(objContato);
+    document.querySelector("body").style.cursor = 'progress';
 }); 
 
 function sendMail(obj) {

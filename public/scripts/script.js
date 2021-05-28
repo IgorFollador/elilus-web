@@ -91,12 +91,13 @@ function ativaSubmit() {
 
 btnSign.addEventListener('click', function() {
     let objCadastro = {
-        "Name": inputNameCad.value,
-        "LastName": inputLastnameCad.value,
-        "Email": inputEmailCad.value,
-        "Password": inputPassCad.value
+        "name": inputNameCad.value,
+        "lastname": inputLastnameCad.value,
+        "email": inputEmailCad.value,
+        "password": inputPassCad.value
     };
     sendSign(objCadastro);
+    document.querySelector("body").style.cursor = 'progress';
 });
 
 function sendSign(obj) {

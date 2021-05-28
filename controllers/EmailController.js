@@ -12,9 +12,9 @@ const transporter = nodemailer.createTransport({
 });
 
 function sendMail(req,res) {
-    let email = req.body.Email;
-    let subject = "Mensagem de " + req.body.Name;
-    let message  = req.body.Message + "\nTELEFONE PARA CONTATO: " + req.body.Telephone;
+    let email = req.body.email;
+    let subject = "Mensagem de " + req.body.name;
+    let message  = req.body.message + "\nTELEFONE PARA CONTATO: " + req.body.telephone;
 
     // console.log(email);
     // console.log(subject);
