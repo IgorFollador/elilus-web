@@ -32,5 +32,4 @@ module.exports = {
         res.header('authorization-token', token);
         res.send("Usuário logado!");
     }
-    
 }

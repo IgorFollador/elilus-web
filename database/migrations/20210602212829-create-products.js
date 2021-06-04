@@ -12,15 +12,15 @@ module.exports = {
     id_category: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      references: {model: "product_category", key: 'id'},
+      references: {model: "categories", key: 'id'},
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE'
     },
-    path_image: {
-      type: Sequelize.STRING(500)
-    },
     description: {
       type: Sequelize.STRING(250)
+    },
+    path_image: {
+      type: Sequelize.STRING(500)
     },
     created_at: {
       type: Sequelize.DATE,
