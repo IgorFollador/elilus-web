@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('users_favorites', { 
+    await queryInterface.createTable('favorites', { 
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -35,6 +35,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('users_favorites');
+    await queryInterface.dropTable('favorites');
   }
 };

@@ -8,14 +8,12 @@ const auth = require('../controllers/authController');
 
 router.post('/sendMail', express.json(), apiEmail.sendMail);
 
-router.post('/register', express.json(), UserController.register);
+router.post('/register', express.json(), auth, UserController.register);
 
-router.post('/login', express.json(), UserController.login);
+router.post('/login', express.json(), UserController.login, auth);
 
 router.get('/list', ProductController.listAll);
 
-router.get('/favorites', auth, (req, res) => {
-    res.send('Este dado só deve ser visto pelos usuarios logados!')
-});
+router.get('/favorites', auth, ProductController.getFavorites);
 
 module.exports = router;

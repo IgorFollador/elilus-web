@@ -15,7 +15,10 @@ module.exports = {
         
         try{
             const savedUser = await user.save();
-            res.send(savedUser)
+            const token = jwt.sign({id: user.id}, process.env.TOKEN_SECRET);
+            res.header('authorization-token', token);
+            user.password = undefined;
+            res.send(savedUser);
         }catch (error) {
             res.status(400).send(error)
         }
@@ -23,12 +26,12 @@ module.exports = {
 
     login: async function (req, res) {
         const selectUser = await User.findOne({where: {email: req.body.email}});
-        if(!selectUser) return res.status(400).send('Email ou senha incorreto');
+        if(!selectUser) return res.status(400).send('Email ou senha incorretos');
         
         const passwordAndUserMatch = bcrypt.compareSync(req.body.password, selectUser.password);
-        if(!passwordAndUserMatch) return res.status(400).send('Email ou senha incorreto');
+        if(!passwordAndUserMatch) return res.status(400).send('Email ou senha incorretos');
         
-        const token = jwt.sign({email: selectUser.email}, process.env.TOKEN_SECRET);
+        const token = jwt.sign({userId: selectUser.id}, process.env.TOKEN_SECRET);
         res.header('authorization-token', token);
         res.send("Usuário logado!");
     }
