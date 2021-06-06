@@ -41,6 +41,7 @@ module.exports = {
     getFavorites: async function (req, res) {
         const products = await Favorite.findAll({
             where: { id_user: req.userId },
+            order: [ [ 'id_product'] ],
             attributes: { 
                 exclude: ['createdAt', 'updatedAt']}, 
                 include: [{model: Product,
@@ -55,6 +56,13 @@ module.exports = {
             id_product: req.body.id_product,
             id_user: req.userId
         })
+
+        selectFavorite =  await Favorite.findOne({where: {id_product: req.body.id_product, id_user: req.userId}});
+
+        if(selectFavorite){
+            selectFavorite.destroy();
+            return res.send("Produto excluido")
+        } 
         try{
             await favorites.save();
             res.send("Produto cadastrado");
