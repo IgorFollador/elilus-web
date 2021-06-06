@@ -1,5 +1,6 @@
 var btnSign = document.querySelector("#btnSign");
 var btnLogin = document.querySelector("#btnLogin"); 
+var btnLogout = document.querySelector("#btnLogout"); 
 
 var inputEmailLogin = document.querySelector("#email"); 
 var inputPassLogin = document.querySelector("#password");
@@ -88,6 +89,44 @@ function ativaSubmit() {
     }
 }
 
+//Cookies
+
+function setCookie(name, value) {
+    var cookie = name + "=" + escape(value);
+
+    document.cookie = cookie;
+}
+
+function getCookie(name) {
+    var cookies = document.cookie;
+    var prefix = name + "=";
+    var begin = cookies.indexOf("; " + prefix);
+ 
+    if (begin == -1) {
+        begin = cookies.indexOf(prefix);
+        if (begin != 0) return null;
+    } else begin += 2;
+ 
+    var end = cookies.indexOf(";", begin);
+     
+    if (end == -1) end = cookies.length;
+ 
+    return unescape(cookies.substring(begin + prefix.length, end));
+}
+
+function deleteCookie(name) {
+    if (getCookie(name)) {
+           document.cookie = name + "=" + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+    }
+}
+
+function deleteCookie(name) {
+    if (getCookie(name)) {
+           document.cookie = name + "=" + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+    }
+}
+
+//Sends
 
 btnSign.addEventListener('click', function() {
     let objCadastro = {
@@ -117,4 +156,43 @@ function sendSign(obj) {
         alert("Infelizmente não foi possivel cadastrar o usuário!");
     });
 }
+
+btnLogin.addEventListener('click', function() {
+    let objLogin = {
+        "email": inputEmailLogin.value,
+        "password": inputPassLogin.value
+    };
+    sendLogin(objLogin);
+    document.querySelector("body").style.cursor = 'progress';
+});
+
+function sendLogin(obj) {
+    const options = {
+        method: "POST",
+        headers: new Headers({'content-type': 'application/json'}),
+        body: JSON.stringify(obj)
+    }
+
+    fetch("http://localhost:3000/user/login", options).then(res =>{
+        var authorization = res.headers.get('authorization-token');
+        setCookie("authorization-token",authorization);
+        location.reload();
+    }).catch(error=>{
+        console.log(error);
+        alert("Email ou senha incorretos!");
+    });
+}
+
+
+btnLogout.addEventListener('click', function() {
+    logout();
+    document.querySelector("body").style.cursor = 'progress';
+});
+
+function logout() {
+    deleteCookie("authorization-token");
+    location.reload()
+}
+
+
 

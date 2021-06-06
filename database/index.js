@@ -19,7 +19,7 @@ Product.init(connection);
 Category.init(connection);
 Favorite.init(connection);
 
-Product.associate(connection.models)
-Favorite.associate(connection.models)
+Product.associate(connection.models);
+Favorite.associate(connection.models);
 
 module.exports = connection;

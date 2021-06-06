@@ -16,7 +16,7 @@ async function getCatalogo() {
                                             <div class="product-grid2">
                                                 <div class="product-image2"><img class="pic-1" src=${product.path_image} alt="pic-1">
                                                     <ul class="like">
-                                                        <li><a href="#" data-tip="Add aos favoritos"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></li>
+                                                        <li><a id=favid-${product.id} href="#" data-tip="Add aos favoritos"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="product-content">

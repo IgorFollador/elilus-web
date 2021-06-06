@@ -42,7 +42,7 @@ body{
 }
 
 #btnModal {
-    margin-left: 3rem;;
+    margin-left: 3rem;
 }
 
 .titlePage {
@@ -57,6 +57,11 @@ body{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: center;
     margin-bottom: 15px;
+}
+
+#logged {
+    display: block;
+    margin-left: 3rem;;
 }
 
 /*MODAL Login/Sign*/
@@ -92,6 +97,7 @@ body{
 #registerSign input::placeholder {
     color: rgb(187, 187, 187);
 }
+
 
 /*FOOTER*/
 footer {

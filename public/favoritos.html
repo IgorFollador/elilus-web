@@ -210,6 +210,10 @@
 					</form>
 					<button class="btn btn-primary" id="btnModal" data-bs-toggle="modal"
 						data-bs-target="#modalLogin">Entrar/Registrar</button>
+					<div id="logged">
+						<a href="./favoritos.html"><button class="btn btn-primary" id="btnFav">Meus Favoritos</button></a>
+						<a class="btn" id="btnLogout" href="./index.html">Sair</a>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -239,8 +243,8 @@
 								<input type="checkbox" class="form-check-input" id="remember" checked>
 								<label class="form-check-label mb-3" for="remember">Lembrar-me</label>
 							</div>
-							<button type="submit" class="btn btn-primary">Entrar</button>
 						</form>
+						<button id="btnLogin" type="submit" class="btn btn-primary">Entrar</button>
 					</div>
 					<div class="modal-footer d-flex justify-content-between">
 						<div class="float-right">
@@ -295,8 +299,8 @@
 									placeholder="Digite sua senha novamente">
 								<span id="erroRepeatPass"> As senhas não conferem!</span>
 							</div>
-							<button id="btnSign" type="submit" class="btn btn-primary">Cadastrar</button>
 						</form>
+						<button id="btnSign" type="submit" class="btn btn-primary">Cadastrar</button>
 					</div>
 					<div class="modal-footer">
 						<button class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal"
@@ -326,13 +330,13 @@
 						<form method="POST">
 							<div class="form-group mb-3">
 								<label class="mb-1" for="email">Email</label>
-								<input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+								<input type="email" class="form-control" id="emailForgot" aria-describedby="emailHelp"
 									placeholder="Seu email">
 							</div>
-							<div class="text-center">
-								<button type="submit" class="btn btn-danger">Redefinir Senha</button>
-							</div>
 						</form>
+						<div class="text-center">
+							<button type="submit" class="btn btn-danger">Redefinir Senha</button>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal"
@@ -395,7 +399,6 @@
 	</footer>
 
 	<script type="text/javascript" src="./scripts/script.js"></script>
-	<script type="text/javascript" src="./scripts/index.js"></script>
 	<script type="text/javascript" src="./scripts/favoritos.js"></script>
 	<!--Facebook page-->
 	<div id="fb-root"></div>

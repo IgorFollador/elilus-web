@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-    }, 
+      }, 
       id_product: {
         type: Sequelize.INTEGER,
         allowNull: false,

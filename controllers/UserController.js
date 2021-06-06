@@ -1,4 +1,6 @@
 const User = require('../models/User');
+const Product = require('../models/Product');
+const Favorite = require('../models/Favorite');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -26,13 +28,39 @@ module.exports = {
 
     login: async function (req, res) {
         const selectUser = await User.findOne({where: {email: req.body.email}});
-        if(!selectUser) return res.status(400).send('Email ou senha incorretos');
+        if(!selectUser) return res.status(401).send('Email ou senha incorretos');
         
         const passwordAndUserMatch = bcrypt.compareSync(req.body.password, selectUser.password);
-        if(!passwordAndUserMatch) return res.status(400).send('Email ou senha incorretos');
+        if(!passwordAndUserMatch) return res.status(401).send('Email ou senha incorretos');
         
         const token = jwt.sign({userId: selectUser.id}, process.env.TOKEN_SECRET);
         res.header('authorization-token', token);
         res.send("Usuário logado!");
+    },
+
+    getFavorites: async function (req, res) {
+        const products = await Favorite.findAll({
+            where: { id_user: req.userId },
+            attributes: { 
+                exclude: ['createdAt', 'updatedAt']}, 
+                include: [{model: Product,
+                        as: 'product',
+                        attributes: ['id', 'description', 'path_image']}]
+            });
+        return res.json(products);
+    },
+
+    setFavorite: async function (req, res) {
+        const favorites = new Favorite({
+            id_product: req.body.id_product,
+            id_user: req.userId
+        })
+        try{
+            await favorites.save();
+            res.send("Produto cadastrado");
+        }catch (error) {
+            res.status(400).send(error)
+        }
+        
     }
 }

@@ -8,12 +8,14 @@ const auth = require('../controllers/authController');
 
 router.post('/sendMail', express.json(), apiEmail.sendMail);
 
-router.post('/register', express.json(), auth, UserController.register);
+router.post('/register', express.json(), UserController.register);
 
-router.post('/login', express.json(), UserController.login, auth);
+router.post('/login', express.json(), UserController.login);
+
+router.get('/getFavorites', auth,UserController.getFavorites);
+
+router.post('/setFavorites', auth, express.json(), UserController.setFavorite);
 
 router.get('/list', ProductController.listAll);
-
-router.get('/favorites', auth, ProductController.getFavorites);
 
 module.exports = router;
