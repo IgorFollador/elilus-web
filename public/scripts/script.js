@@ -1,3 +1,14 @@
+let auth = getCookie("authorization-token");
+function validaSession() {
+    if(auth) {
+        btnModal.style = "display: none;"
+        logged.style = "display: block;"
+    }
+}
+
+validaSession();
+
+
 var btnSign = document.querySelector("#btnSign");
 var btnLogin = document.querySelector("#btnLogin"); 
 var btnLogout = document.querySelector("#btnLogout"); 
@@ -112,12 +123,6 @@ function getCookie(name) {
     if (end == -1) end = cookies.length;
  
     return unescape(cookies.substring(begin + prefix.length, end));
-}
-
-function deleteCookie(name) {
-    if (getCookie(name)) {
-           document.cookie = name + "=" + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
-    }
 }
 
 function deleteCookie(name) {
