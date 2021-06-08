@@ -22,7 +22,7 @@
 	}
 
 	.container {
-    	margin-top: 50px;
+		margin-top: 50px;
 	}
 
 	.title {
@@ -178,7 +178,6 @@
 <body>
 
 	<header class="header">
-
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<div class="container-fluid">
 				<a href="./index.html"><img class="navbar-brand logo" src="./img/Elilus banner.png"
@@ -198,8 +197,7 @@
 						<li class="nav-item">
 							<a class="nav-link" href="./fotos.html">Fotos</a>
 						</li>
-						<li cl
-						ass="nav-item">
+						<li cl ass="nav-item">
 							<a class="nav-link" href="./sobre.html">Sobre</a>
 						</li>
 					</ul>
@@ -211,7 +209,8 @@
 					<button class="btn btn-primary" id="btnModal" data-bs-toggle="modal"
 						data-bs-target="#modalLogin">Entrar/Registrar</button>
 					<div id="logged">
-						<a href="./favoritos.html"><button class="btn btn-danger" id="btnFav">Meus Favoritos</button></a>
+						<a href="./favoritos.html"><button class="btn btn-danger" id="btnFav">Meus
+								Favoritos</button></a>
 						<a class="btn" id="btnLogout" href="./">Sair</a>
 					</div>
 				</div>
@@ -278,7 +277,7 @@
 							</div>
 							<div class="form-group mb-3">
 								<label for="lastname">Sobrenome</label>
-								<input id="lastname" type="text" class="form-control" 
+								<input id="lastname" type="text" class="form-control"
 									placeholder="Digite seu sobrenome">
 							</div>
 							<div class="form-group mb-3">
@@ -291,11 +290,11 @@
 								<label class="required" for="password">Senha</label>
 								<input id="passwordCad" type="password" class="form-control"
 									placeholder="Digite sua senha">
-								<span id="erroPass"> Preencha com um senha válido!</span>
+								<span id="erroPass"> Preencha com uma senha válido!</span>
 							</div>
 							<div class="form-group mb-3">
 								<label class="required" for="password">Repita sua senha</label>
-								<input id="repeatPassword" type="password" class="form-control" 
+								<input id="repeatPassword" type="password" class="form-control"
 									placeholder="Digite sua senha novamente">
 								<span id="erroRepeatPass"> As senhas não conferem!</span>
 							</div>
@@ -330,12 +329,12 @@
 						<form method="POST">
 							<div class="form-group mb-3">
 								<label class="mb-1" for="email">Email</label>
-								<input type="email" class="form-control" id="emailForgot" aria-describedby="emailHelp"
+								<input type="email" id="emailForgot" class="form-control" aria-describedby="emailHelp"
 									placeholder="Seu email">
 							</div>
 						</form>
 						<div class="text-center">
-							<button type="submit" class="btn btn-danger">Redefinir Senha</button>
+							<button type="submit" id="btnForgot" class="btn btn-danger">Redefinir Senha</button>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -345,12 +344,12 @@
 				</div>
 			</div>
 		</div>
-
 	</header>
+
 	<main class="container mt-3">
 		<div class="container">
 			<div class="row" id="products">
-				
+
 			</div>
 		</div>
 	</main>
