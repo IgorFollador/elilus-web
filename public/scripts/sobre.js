@@ -1,9 +1,9 @@
 var btnEntraContato = document.querySelector("#btn-contato");
 
-var inputName = document.querySelector("#name");
-var inputEmail = document.querySelector("#email");
-var inputTelephone = document.querySelector("#telephone");
-var inputMessage = document.querySelector("#message");
+var inputName = document.querySelector("#nameContact");
+var inputEmail = document.querySelector("#emailContact");
+var inputTelephone = document.querySelector("#telephoneContact");
+var inputMessage = document.querySelector("#messageContact");
 
 var nameOK=false;
 var emailOK=false;
@@ -11,7 +11,7 @@ var messageOK=false;
 var telephoneOK=false;
 
 inputName.addEventListener('blur', function() {
-    validaCampoVazio(inputName, erroName, "name");
+    validaCampoVazio(inputName, erroNameContact, "name");
     ativaSubmit();
 });
 
@@ -53,11 +53,11 @@ function validaEmail(email) {
     var re = /\S+@\S+\.\S+/;
     if(re.test(email)){
         inputEmail.style = "border-color: #888";
-        erroEmail.style = "display: none";
+        erroEmailContact.style = "display: none";
         emailOK=true;
     }else{
         inputEmail.style = "border-color: red";
-        erroEmail.style = "display: block";
+        erroEmailContact.style = "display: block";
         emailOK=false;
     }
 }
@@ -79,7 +79,6 @@ function ativaSubmit() {
         btnEntraContato.setAttribute('disabled', 'disabled');
     }
 }
-
 
 btnEntraContato.addEventListener('click', function(){
 

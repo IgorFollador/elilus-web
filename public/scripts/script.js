@@ -1,6 +1,8 @@
 let auth = getCookie("authorization-token");
 function validaSession() {
-    if(auth) {
+    if(auth==null || auth=="null") {
+        logged.style = "display: none;"
+    }else {
         btnModal.style = "display: none;"
         logged.style = "display: block;"
     }
@@ -12,6 +14,7 @@ validaSession();
 var btnSign = document.querySelector("#btnSign");
 var btnLogin = document.querySelector("#btnLogin"); 
 var btnLogout = document.querySelector("#btnLogout"); 
+var btnForgot = document.querySelector("#btnForgot");
 
 var inputEmailLogin = document.querySelector("#email"); 
 var inputPassLogin = document.querySelector("#password");
@@ -21,6 +24,8 @@ var inputLastnameCad = document.querySelector("#lastname");
 var inputEmailCad = document.querySelector("#emailCad");
 var inputPassCad = document.querySelector("#passwordCad");
 var inputRepeatPassCad = document.querySelector("#repeatPassword");
+
+var inputEmailForgot = document.querySelector("#emailForgot");
 
 let nameCadOK=false;
 let emailCadOK=false;
@@ -102,11 +107,12 @@ function ativaSubmit() {
 
 //Cookies
 
-function setCookie(name, value) {
-    var cookie = name + "=" + escape(value);
-
-    document.cookie = cookie;
-}
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
 
 function getCookie(name) {
     var cookies = document.cookie;
@@ -145,7 +151,6 @@ btnSign.addEventListener('click', function() {
 });
 
 function sendSign(obj) {
-
     const options = {
         method: "POST",
         headers: new Headers({'content-type': 'application/json'}),
@@ -188,16 +193,41 @@ function sendLogin(obj) {
     });
 }
 
-
 btnLogout.addEventListener('click', function() {
     logout();
     document.querySelector("body").style.cursor = 'progress';
+    console.log("Logout...");
+    deleteCookie("authorization-token");
 });
 
 function logout() {
-    deleteCookie("authorization-token");
-    location.reload()
+    const options = {
+        headers: new Headers({"authorization-token": getCookie("authorization-token")}),
+    }
+    fetch('http://localhost:3000/user/logout', options);
 }
 
+btnForgot.addEventListener('click', function() {
+    let objForgot = {
+        "email": inputEmailForgot.value
+    }
+    sendResetPassword(objForgot);
+    document.querySelector("body").style.cursor = 'progress';
+});
 
+function sendResetPassword(obj) {
+    const options = {
+        method: "POST",
+        headers: new Headers({'content-type': 'application/json'}),
+        body: JSON.stringify(obj)
+    }
+
+    fetch("http://localhost:3000/auth/forgot_password", options).then(res =>{
+        alert("Solicitação realizada, verifique seu email!");
+        location.reload();
+    }).catch(error=>{
+        console.log(error);
+        alert("Infelizmente não foi solicitar a redefinição de senha");
+    });
+}
 

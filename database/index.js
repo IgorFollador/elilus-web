@@ -5,6 +5,7 @@ const User = require('../models/User');
 const Product = require('../models/Product');
 const Category = require('../models/Category');
 const Favorite = require('../models/Favorite');
+const Blacklist = require('../models/Blacklist');
 
 const connection = new Sequelize(dbConfig);
 
@@ -18,6 +19,7 @@ User.init(connection);
 Product.init(connection);
 Category.init(connection);
 Favorite.init(connection);
+Blacklist.init(connection);
 
 Product.associate(connection.models);
 Favorite.associate(connection.models);

@@ -1,12 +1,12 @@
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-const transporter = nodemailer.createTransport({
+const transporterCONTACT = nodemailer.createTransport({
     host: 'smtp.umbler.com',
     port: 587,
     secure: false,
     auth: {
-        user: process.env.EMAIL_USER,
+        user: process.env.EMAIL_CONTACT,
         pass: process.env.EMAIL_PASS,
     }
 });
@@ -15,14 +15,10 @@ function sendMail(req,res) {
     let email = req.body.email;
     let subject = "Mensagem de " + req.body.name;
     let message  = req.body.message + "\nTELEFONE PARA CONTATO: " + req.body.telephone;
-
-    // console.log(email);
-    // console.log(subject);
-    // console.log(message);
     
-    transporter.sendMail({
-        from: process.env.EMAIL_USER,
-        to: process.env.EMAIL_USER,
+    transporterCONTACT.sendMail({
+        from: process.env.EMAIL_CONTACT,
+        to: process.env.EMAIL_CONTACT,
         replyTo: email,
         subject: subject,
         text: message

@@ -12,6 +12,8 @@ router.post('/register', express.json(), UserController.register);
 
 router.post('/login', express.json(), UserController.login);
 
+router.get('/logout', UserController.logout);
+
 router.get('/getFavorites', auth, UserController.getFavorites);
 
 router.post('/setFavorites', express.json(), auth, UserController.setFavorite);
