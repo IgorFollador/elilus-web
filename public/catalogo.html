@@ -347,7 +347,7 @@
 	</header>
 
 	<main class="container mt-3">
-		<div class="container">
+		<div class="container" style="min-height: 400px">
 			<div class="row" id="products">
 
 			</div>
@@ -404,6 +404,33 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
 		crossorigin="anonymous"></script>
+
+	<script>
+		function sendFav(obj) {
+			const options = {
+				method: "POST",
+				headers: new Headers({
+					"content-type": "application/json",
+					"authorization-token": getCookie("authorization-token"),
+				}),
+				body: JSON.stringify(obj)
+			}
+			fetch("http://localhost:3000/user/setFavorites", options).then(res => {
+				location.reload();
+			}).catch(error => {
+				console.log(error);
+			});
+		}
+
+		function setFavorite(id) {
+			if (!auth) { return alert("É necessário estar logado para favoritar!") }
+			let objFav = {
+				"id_product": id
+			};
+			sendFav(objFav);
+			document.querySelector("body").style.cursor = 'progress';
+		}
+	</script>
 
 </body>
 
