@@ -180,7 +180,7 @@
 	<header class="header">
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<div class="container-fluid">
-				<a href="./index.html"><img class="navbar-brand logo" src="./img/Elilus banner.png"
+				<a href="./"><img class="navbar-brand logo" src="./img/Elilus banner.png"
 						alt="Elilus Logo" /></a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
 					aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -416,6 +416,7 @@
 				body: JSON.stringify(obj)
 			}
 			fetch("http://localhost:3000/user/setFavorites", options).then(res => {
+				location.reload();
 			}).catch(error => {
 				console.log(error);
 			});

@@ -18,7 +18,10 @@ async function getCatalogo() {
             let productElements = '';
             let fav = `<i class="fa fa-thumbs-up" aria-hidden="true"></i>`
             let products = json;
+            
             products.forEach((product) => {
+                console.log(products);
+                if(products.fav) fav = `<i class="fa fa-thumbs-down" aria-hidden="true"></i>`
                 let productElement = ` <div class="col-md-4 col-sm-6">
                                             <div class="product-grid2">
                                                 <div class="product-image2"><img class="pic-1" src=${product.path_image} alt="pic-1">
@@ -37,7 +40,7 @@ async function getCatalogo() {
                                         </div>`
                 productElements += productElement;
             })
-
+            
             document.getElementById("products").innerHTML = productElements;
         });
     } catch (error) {

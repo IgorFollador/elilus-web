@@ -15,18 +15,19 @@ module.exports = {
             });
 
             ///Tentativa para verificar quais produtos estao favoritados
-            // if(req.header('authorization-token')){
+            // const token = req.header('authorization-token');
+            // if(token!='null' && token!=null){
             //     const userId = jwt_decode( req.header('authorization-token'));
-            //     console.log(userId);
             //     products.forEach(async product => {
-            //         const selectFavorite =  await Favorite.findOne({where: {id_product: product.id, id_user: userId}});
-            //         if(selectFavorite){
-            //             console.log(selectFavorite.id_product)
-            //         }
-            //     });  
+            //         product.fav = false;
+            //         const selectFavorite =  await Favorite.findOne({where: {id_product: product.id, id_user: userId.userId}});
+            //         if(selectFavorite)
+            //             product.fav = true;
+            //         console.log(product.fav);
+            //         // console.log(product);
+            //     });
             // }
-            
-            
+            console.log(products);
         return res.json(products);
     },
 
