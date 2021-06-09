@@ -16,7 +16,6 @@ async function getCatalogo() {
         }).then(json => {
 
             let productElements = '';
-
             let products = json;
             products.forEach((product) => {
                 let productElement = ` <div class="col-md-4 col-sm-6">
@@ -25,7 +24,7 @@ async function getCatalogo() {
                                                     <ul class="like">
                                                         <li>  
                                                             <a data-tip="Add aos favoritos"onclick='setFavorite(${product.product.id})' href="#">
-                                                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                                                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
                                                             </a>
                                                         </li>
                                                     </ul>

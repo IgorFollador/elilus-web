@@ -8,7 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function getCatalogo() {
     try {
-        await fetch('http://localhost:3000/user/list').then(res => {
+        const options = {
+            headers: new Headers({"authorization-token": getCookie("authorization-token")}),
+        }
+        await fetch('http://localhost:3000/user/list', options).then(res => {
             return res.json()
         }).then(json => {
 
