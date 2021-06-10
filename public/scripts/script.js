@@ -18,6 +18,7 @@ var btnForgot = document.querySelector("#btnForgot");
 
 var inputEmailLogin = document.querySelector("#email"); 
 var inputPassLogin = document.querySelector("#password");
+var remember = document.querySelector("#remember");
 
 var inputNameCad = document.querySelector("#nameCad");
 var inputLastnameCad = document.querySelector("#lastname");
@@ -186,6 +187,8 @@ function sendLogin(obj) {
     fetch("http://localhost:3000/user/login", options).then(res =>{
         var authorization = res.headers.get('authorization-token');
         setCookie("authorization-token",authorization);
+        if(!remember.checked)setCookie("authorization-token",authorization, 1);
+        else setCookie("authorization-token",authorization);
         location.reload();
     }).catch(error=>{
         console.log(error);
