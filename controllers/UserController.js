@@ -35,8 +35,10 @@ module.exports = {
         
         const passwordAndUserMatch = bcrypt.compareSync(req.body.password, selectUser.password);
         if(!passwordAndUserMatch) return res.status(401).send('Email ou senha incorretos');
-        
-        const token = jwt.sign({userId: selectUser.id}, process.env.TOKEN_SECRET);
+        var token;
+        if(req.body.remember){
+            token = jwt.sign({userId: selectUser.id}, process.env.TOKEN_SECRET);
+        }else token = jwt.sign({userId: selectUser.id}, process.env.TOKEN_SECRET, {expiresIn: 172800});
         res.header('authorization-token', token);
         res.send("Usuário logado!");
     },

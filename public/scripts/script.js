@@ -171,7 +171,8 @@ function sendSign(obj) {
 btnLogin.addEventListener('click', function() {
     let objLogin = {
         "email": inputEmailLogin.value,
-        "password": inputPassLogin.value
+        "password": inputPassLogin.value,
+        "remember": remember.checked
     };
     sendLogin(objLogin);
     document.querySelector("body").style.cursor = 'progress';
