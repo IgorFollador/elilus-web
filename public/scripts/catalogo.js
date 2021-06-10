@@ -14,21 +14,25 @@ async function getCatalogo() {
         await fetch('http://localhost:3000/user/list', options).then(res => {
             return res.json()
         }).then(json => {
-
+            let favs;
+            let color;
             let productElements = '';
-            let fav = `<i class="fa fa-thumbs-up" aria-hidden="true"></i>`
             let products = json;
-            
             products.forEach((product) => {
-                console.log(products);
-                if(products.fav) fav = `<i class="fa fa-thumbs-down" aria-hidden="true"></i>`
+                if(product.fav) {
+                    favs = `<i class="fa fa-thumbs-down" aria-hidden="true"></i>`
+                    color = `rgb(179, 54, 54)`
+                }else {
+                    favs = `<i class="fa fa-thumbs-up a" aria-hidden="true"></i>`
+                    color = ``;
+                }
                 let productElement = ` <div class="col-md-4 col-sm-6">
                                             <div class="product-grid2">
-                                                <div class="product-image2"><img class="pic-1" src=${product.path_image} alt="pic-1">
+                                                <div class="product-image"><img class="pic-1" src=${product.path_image} alt="pic-1">
                                                     <ul class="like">
                                                         <li>  
-                                                            <a data-tip="Add aos favoritos"onclick='setFavorite(${product.id})' href="#">
-                                                                ${fav}
+                                                            <a data-tip="Add aos favoritos"onclick='setFavorite(${product.id})' onmouseover="this.style.backgroundColor='${color}'";>
+                                                                ${favs}
                                                             </a>
                                                         </li>
                                                     </ul>

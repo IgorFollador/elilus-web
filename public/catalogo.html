@@ -37,16 +37,16 @@
 		position: relative;
 	}
 
-	.product-grid2 .product-image2 {
+	.product-grid2 .product-image {
 		overflow: hidden;
 		position: relative;
 	}
 
-	.product-grid2 .product-image2 a {
+	.product-grid2 .product-image a {
 		display: block;
 	}
 
-	.product-grid2 .product-image2 img {
+	.product-grid2 .product-image img {
 		width: 100%;
 		height: auto;
 	}
@@ -92,10 +92,11 @@
 		transition: all .3s ease 0s;
 	}
 
-	.product-grid2 .like li a:hover {
+	.product-grid2 .like li a:hover{
 		color: rgb(255, 255, 255);
 		background-color: rgb(52, 152, 219);
 		box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+		cursor: pointer;
 	}
 
 	.product-grid2 .like li a:after,
@@ -423,7 +424,8 @@
 		}
 
 		function setFavorite(id) {
-			if (!auth) { return alert("É necessário estar logado para favoritar!") }
+			if (!auth)
+				return alert("É necessário estar logado para favoritar!");
 			let objFav = {
 				"id_product": id
 			};
