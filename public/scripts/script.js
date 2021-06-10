@@ -160,7 +160,7 @@ function sendSign(obj) {
     fetch("http://localhost:3000/user/register", options).then(res =>{
         console.log(res);
         alert("Usuário cadastrado com sucesso!");
-        location.reload();
+        sendLogin({"email": inputEmailCad.value, "password": inputPassCad.value});
     }).catch(error=>{
         console.log(error);
         alert("Infelizmente não foi possivel cadastrar o usuário!");
