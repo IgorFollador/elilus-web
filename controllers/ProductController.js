@@ -6,14 +6,19 @@ const jwt_decode = require('jwt-decode');
 
 module.exports = {
     listAll: async function (req, res) {
-        const productss = await Product.findAll({
+        const productsDB = await Product.findAll({
             attributes: { 
                 exclude: ['createdAt', 'updatedAt']}, 
                 include: [{model: Category,
-                        as: 'category',
-                        attributes: ['description']}]
+                        as: "category",
+                        attributes: ['description'],
+                    }],
+                order: [
+                    ['category', 'description', 'ASC'],
+                    ['id', 'ASC'],
+                ],
             });
-            const products = JSON.parse(JSON.stringify(productss)); 
+            const products = JSON.parse(JSON.stringify(productsDB)); 
             ///Tentativa para verificar quais produtos estao favoritados
             const token = req.header('authorization-token');
             if(token!='null' && token!=null){
@@ -26,9 +31,39 @@ module.exports = {
                         product.fav = true;
                 });
             }
-        setTimeout(function teste () {
+        setTimeout(function() {
                 return res.json(products);
-        }, 500);   
+        }, 100);   
     },
 
+    //Busca de produtos
+    searchAll: async function (req, res) {
+        const query = `%${req.query.search}%`;
+        console.log(query);
+        const productsDB = await Product.findAll({
+            attributes: { 
+                exclude: ['createdAt', 'updatedAt']}, 
+                include: [{model: Category,
+                        as: 'category',
+                        attributes: ['description']}],
+                where: {description: { [Op.like]: query } }
+            });
+            const products = JSON.parse(JSON.stringify(productsDB)); 
+
+            ///Verifica quais produtos estao favoritados
+            const token = req.header('authorization-token');
+            if(token!='null' && token!=null){
+                const userId = jwt_decode( req.header('authorization-token'));
+
+                products.forEach(async product => {
+                    product.fav=false;
+                    const selectFavorite =  await Favorite.findOne({where: {id_product: product.id, id_user: userId.userId}});
+                    if(selectFavorite)
+                        product.fav = true;
+                });
+            }
+        setTimeout(function() {
+                return res.json(products);
+        }, 100);   
+    }
 }

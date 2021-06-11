@@ -10,24 +10,27 @@ function validaSession() {
 
 validaSession();
 
-
+// BUTTONS
 var btnSign = document.querySelector("#btnSign");
 var btnLogin = document.querySelector("#btnLogin"); 
 var btnLogout = document.querySelector("#btnLogout"); 
 var btnForgot = document.querySelector("#btnForgot");
-
+var btnSearch = document.querySelector("btnSearch");
+//INPUTS FOR LOGIN
 var inputEmailLogin = document.querySelector("#email"); 
 var inputPassLogin = document.querySelector("#password");
 var remember = document.querySelector("#remember");
-
+//INPUTS FOR REGISTER
 var inputNameCad = document.querySelector("#nameCad");
 var inputLastnameCad = document.querySelector("#lastname");
 var inputEmailCad = document.querySelector("#emailCad");
 var inputPassCad = document.querySelector("#passwordCad");
 var inputRepeatPassCad = document.querySelector("#repeatPassword");
-
+//INPUTS FOR FORGOT PASSWORD
 var inputEmailForgot = document.querySelector("#emailForgot");
-
+//INPUT SEARCH
+var inputSearch = document.querySelector("inputSearch");
+//VALIDATIONS FOR REGISTER
 let nameCadOK=false;
 let emailCadOK=false;
 let passCadOK=false;
@@ -234,4 +237,5 @@ function sendResetPassword(obj) {
         alert("Infelizmente não foi solicitar a redefinição de senha");
     });
 }
+
 

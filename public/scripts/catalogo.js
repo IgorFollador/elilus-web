@@ -3,27 +3,27 @@ imported.src = 'script.js';
 document.head.appendChild(imported);
 
 document.addEventListener('DOMContentLoaded', () => {
-    getCatalogo();
+    getCategories();
+    getProducts();  
 })
 
-async function getCatalogo() {
+async function getProducts() {
     try {
         const options = {
             headers: new Headers({"authorization-token": getCookie("authorization-token")}),
         }
-        await fetch('http://localhost:3000/user/list', options).then(res => {
+        await fetch('http://localhost:3000/user/listProducts', options).then(res => {
             return res.json()
         }).then(json => {
             let favs;
             let color;
-            let productElements = '';
             let products = json;
             products.forEach((product) => {
                 if(product.fav) {
                     favs = `<i class="fa fa-thumbs-down" aria-hidden="true"></i>`
                     color = `rgb(179, 54, 54)`
                 }else {
-                    favs = `<i class="fa fa-thumbs-up a" aria-hidden="true"></i>`
+                    favs = `<i class="fa fa-thumbs-up" aria-hidden="true"></i>`
                     color = ``;
                 }
                 let productElement = ` <div class="col-md-4 col-sm-6">
@@ -41,14 +41,51 @@ async function getCatalogo() {
                                                     <h3 class="title">${product.description}</h3> <span class="price">ID ${product.id}</span>
                                                 </div>
                                             </div>
-                                        </div>`
-                productElements += productElement;
+                                        </div>`          
+                document.getElementById(`products-${product.category.description}`).innerHTML += productElement;
             })
-            
-            document.getElementById("products").innerHTML = productElements;
         });
     } catch (error) {
         console.log(error)
         alert('Não foi possível acessar nosso catálogo!')
+    }
+}
+
+async function getCategories() {
+    try {
+        const options = {
+            headers: new Headers({"authorization-token": getCookie("authorization-token")}),
+        }
+        await fetch('http://localhost:3000/user/listCategories', options).then(res => {
+            return res.json()
+        }).then(json => {
+            let categoriesElements = '';
+            let categories = json;
+            
+            categories.forEach(category => {
+                let categoriesElement = `<li class="nav-item">
+                                            <a class="nav-link" aria-current="page" href="#${category.description}">${category.description}</a>
+                                        </li>`
+                categoriesElements += categoriesElement;
+            });
+            document.getElementById("filters").innerHTML = categoriesElements;
+
+            categoriesElements = '';
+            categories.forEach((category) => {
+                let categoriesElement = `<div id="${category.description}" class="card text-center border-secondary mb-4">
+                                            <div class="card-header text-white bg-secondary mb-3" ">
+                                                <h4>${category.description}</h4>
+                                            </div>
+                                            <div class="row" id="products-${category.description}">
+
+                                            </div>
+                                        </div>`
+                categoriesElements += categoriesElement;
+            })
+            
+            document.getElementById("catalogo").innerHTML = categoriesElements;
+        });
+    } catch (error) {
+        console.log(error)
     }
 }
