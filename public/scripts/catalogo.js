@@ -17,21 +17,24 @@ async function getProducts() {
         }).then(json => {
             let favs;
             let color;
+            let tag;
             let products = json;
             products.forEach((product) => {
                 if(product.fav) {
                     favs = `<i class="fa fa-thumbs-down" aria-hidden="true"></i>`
                     color = `rgb(179, 54, 54)`
+                    tag =  `"Remover favorito"`
                 }else {
                     favs = `<i class="fa fa-thumbs-up" aria-hidden="true"></i>`
                     color = ``;
+                    tag = `"Add aos favoritos"`
                 }
                 let productElement = ` <div class="col-md-4 col-sm-6">
                                             <div class="product-grid2">
                                                 <div class="product-image"><img class="pic-1" src=${product.path_image} alt="pic-1">
                                                     <ul class="like">
                                                         <li>  
-                                                            <a data-tip="Add aos favoritos"onclick='setFavorite(${product.id})' onmouseover="this.style.backgroundColor='${color}'";>
+                                                            <a data-tip=${tag} onclick='setFavorite(${product.id})' onmouseover="this.style.backgroundColor='${color}'";>
                                                                 ${favs}
                                                             </a>
                                                         </li>

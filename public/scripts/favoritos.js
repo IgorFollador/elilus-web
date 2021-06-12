@@ -23,7 +23,7 @@ async function getCatalogo() {
                                                 <div class="product-image2"><img class="pic-1" src=${product.product.path_image} alt="pic-1">
                                                     <ul class="like">
                                                         <li>  
-                                                            <a data-tip="Add aos favoritos"onclick='setFavorite(${product.product.id})' href="#">
+                                                            <a data-tip="Remover favorito" onclick='setFavorite(${product.product.id})' href="#">
                                                                 <i class="fa fa-thumbs-down" aria-hidden="true"></i>
                                                             </a>
                                                         </li>
