@@ -40,7 +40,8 @@ async function getCatalogo() {
             document.getElementById("products").innerHTML = productElements;
         })
     } catch (error) {
-        console.log(error)
-        alert('Não foi possível acessar seus favoritos!')
+        console.log(error);
+        if(!auth) return alert("Usuário não conectado!");
+        alert("Não foi possível acessar seus favoritos!")
     }
 }
