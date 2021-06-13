@@ -1,0 +1,29 @@
+.carousel-caption {
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.carousel-title {
+    background-color: rgba(46, 46, 46, 0.38);
+    color: rgb(253, 253, 253);
+    font-family: 'Fredoka One', cursive;
+    font-size: 3rem;
+}
+
+.teste {
+    border: rgb(0, 0, 0) solid;
+    border-radius: 10px;
+    height: 700px;
+    margin-bottom: 30px;
+}
+
+.container-fluid {
+    width: auto;
+}
+
+.facebook {
+    display: inline;
+    width: 500px;
+    height: 700px;
+    text-align: center;
+}
