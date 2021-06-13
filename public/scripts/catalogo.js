@@ -73,8 +73,8 @@ async function getCategories() {
 
             categoriesElements = '';
             categories.forEach((category) => {
-                let categoriesElement = `<div id="${category.description}" class="card text-center border-secondary mb-4">
-                                            <div class="card-header text-white bg-secondary mb-3" ">
+                let categoriesElement = `<div id="${category.description}" class="card text-center mb-4" style="border:none;">
+                                            <div class="card-header text-white mb-3 tituloCategoria" >
                                                 <h4>${category.description}</h4>
                                             </div>
                                             <div class="row" id="products-${category.description}">

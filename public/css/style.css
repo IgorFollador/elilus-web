@@ -8,11 +8,11 @@
     padding: 0px;
 }
 
-body{
+body {
     font-family: 'avantGarde', Arial, Helvetica, sans-serif;
 }
 
-.logo{
+.logo {
     display: inline-block;
     margin-right: 85px;
     max-width: 300px;
@@ -22,7 +22,7 @@ body{
     text-decoration: underline;
 }
 
-#btnSearch{
+#btnSearch {
     background-color: rgb(165, 42, 42);
     border:none;
     color: rgb(255, 255, 255);
@@ -30,6 +30,11 @@ body{
     float: right;
     transition-duration: 0.4s;
     width:70px;
+}
+
+#btnFav {
+    color: white; 
+    background-color: rgba(165, 42, 42, 0.897);
 }
 
 #navbarScroll form {

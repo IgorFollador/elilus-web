@@ -99,7 +99,7 @@
 }
 
 .imgContato {
-    background-image: url("img/entreEmContato.png");
+    background-image: url("../img/entreEmContato.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

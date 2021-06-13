@@ -13,6 +13,14 @@
     font-size: 1.7em;
 }
 
+#categorias {
+    background-color: rgb(165, 42, 42);
+}
+
+.tituloCategoria {
+    background-color: rgba(165, 42, 42, 0.897);
+}
+
 .product-grid2 {
     font-family: 'Open Sans', sans-serif;
     position: relative;

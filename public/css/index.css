@@ -10,13 +10,6 @@
     font-size: 3rem;
 }
 
-.teste {
-    border: rgb(0, 0, 0) solid;
-    border-radius: 10px;
-    height: 700px;
-    margin-bottom: 30px;
-}
-
 .container-fluid {
     width: auto;
 }
@@ -26,4 +19,30 @@
     width: 500px;
     height: 700px;
     text-align: center;
+}
+
+.figure {
+    width: 100%; 
+    height: auto;
+    border-radius: 20px;
+}
+
+.banner_01 {
+    width: 100%; height: auto;
+    width: 60%;
+    margin-right: 60px;
+}
+
+.destaque {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.deCaraNova {
+    display: flex;
+}
+
+.oMelhorCasa {
+    display: flex;
 }

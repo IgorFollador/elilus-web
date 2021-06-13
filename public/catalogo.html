@@ -51,7 +51,7 @@
 					<button class="btn btn-primary" id="btnModal" data-bs-toggle="modal"
 						data-bs-target="#modalLogin">Entrar/Registrar</button>
 					<div id="logged">
-						<a href="./favoritos.html"><button class="btn btn-danger" id="btnFav">Meus
+						<a href="./favoritos.html"><button class="btn" id="btnFav">Meus
 								Favoritos</button></a>
 						<a class="btn" id="btnLogout" href="./">Sair</a>
 					</div>
@@ -188,10 +188,10 @@
 		</div>
 	</header>
 
-	<main class="container mt-3">
-		<nav>
-			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+	<main class="container mt-0">
+		<nav class="navbar">
+			<div class="container dropdown mt-2">
+				<button id="categorias" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 				  Categorias
 				</button>
 				<ul id="filters" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -199,7 +199,7 @@
 				</ul>
 			  </div>
 		</nav>
-		<div id="catalogo" class="container" style="min-height: 400px">
+		<div id="catalogo" class="container mt-3" style="min-height: 400px">
 			
 		</div>
 	</main>
