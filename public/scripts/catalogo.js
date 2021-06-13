@@ -66,7 +66,9 @@ async function getCategories() {
             let categories = json;
             
             categories.forEach(category => {
-                let categoriesElement = `<a class="dropdown-item" href="#${category.description}">${category.description}</a>`
+                let categoriesElement = `<li class="nav-item">
+                                            <a class="nav-link" aria-current="page" href="#${category.description}">${category.description}</a>
+                                        </li>`
                 categoriesElements += categoriesElement;
             });
             document.getElementById("filters").innerHTML = categoriesElements;
