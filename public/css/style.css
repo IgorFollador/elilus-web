@@ -108,9 +108,6 @@ footer {
     background-color: rgba(138, 31, 31, 0.747);
     color: rgb(255, 255, 255);
     padding-top: 30px;
-}
-
-footer {
     flex: 0 0 auto;
     -webkit-flex: 0 0 auto;
 }
@@ -151,12 +148,6 @@ footer h5 {
     color: rgb(255, 255, 255);
     font-weight: bold;
     margin-top: 30px;
-}
-
-footer h2 a{
-    font-size: 50px;
-    text-align: center;
-    color: rgb(255, 255, 255);
 }
 
 footer a {
@@ -220,6 +211,20 @@ footer .btn:hover {
     #btnModal {
         margin-left: 0;
         margin: 15px calc(50% - 68px);
+    }
+
+    #logged {
+        margin-left: 0;
+    }
+
+    #btnFav {
+        margin: 15px 0 15px calc(50% - 68px);
+    }
+
+    #btnLogout {
+        margin: 15px 6px 0 0;
+        position: relative;
+        float: right;
     }
 }
 
