@@ -10,6 +10,11 @@ const adminRouter = require('./routes/adminRouter');
 require('dotenv').config();
 let port = process.env.PORT;
 
+app.use("*",(req,res,next)=>{
+    if(req.headers['x-forwarded-proto'] == "https") next();
+    else res.redirect("https://" + req.headers.host + req.originalUrl);
+});
+
 app.use('/', express.static(path.join(__dirname,'public')));
 
 app.use(express.urlencoded({extended: true}));
