@@ -22,11 +22,10 @@ function sendMail(req,res) {
         replyTo: email,
         subject: subject,
         text: message
-    }).then(info=>{
-            console.log(info);
-            res.send("Mensagem enviada com sucesso!");
+    }).then(() =>{
+        res.send("Mensagem enviada com sucesso!");
     }).catch(error=>{
-        console.log(error); 
+        console.error(error); 
         res.send("Não foi possivel enviar sua mensagem :(")
     })
 }

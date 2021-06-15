@@ -37,11 +37,20 @@ async function getCatalogo() {
                 productElements += productElement;
             })
 
-            document.getElementById("products").innerHTML = productElements;
+            if (Object.keys(json).length) {
+                document.getElementById("products").innerHTML = productElements;                
+            } else { 
+                document.getElementById("products").innerHTML = `<div class="d-flex justify-content-center" style="witdh:100%; heigth: auto;">
+                                                                    <img src="../img/not_found_favorites.png" style="min-width:250px; max-width:600px; heigth: auto;" />
+                                                                </div>`;
+            }
         })
     } catch (error) {
         console.log(error);
-        if(!auth) return alert("Usuário não conectado!");
+        if(!auth) {
+            alert("Usuário não conectado!");
+            return window.location.replace("http://localhost:3000");
+        }
         alert("Não foi possível acessar seus favoritos!")
     }
 }

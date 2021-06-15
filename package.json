@@ -21,6 +21,7 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
+    "express-force-domain": "0.0.6",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^3.1.2",
     "mysql2": "^2.2.5",
