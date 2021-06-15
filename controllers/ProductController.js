@@ -19,7 +19,7 @@ module.exports = {
                 ],
             });
             const products = JSON.parse(JSON.stringify(productsDB)); 
-            ///Tentativa para verificar quais produtos estao favoritados
+            ///Verificação dos produtos favoritados
             const token = req.header('authorization-token');
             if(token!='null' && token!=null){
                 const userId = jwt_decode( req.header('authorization-token'));

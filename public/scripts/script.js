@@ -182,7 +182,6 @@ btnLogin.addEventListener("click", function() {
         "remember": remember.checked
     };
     sendLogin(objLogin);
-    document.querySelector("body").style.cursor = "progress";
 });
 
 function sendLogin(obj) {
@@ -196,6 +195,7 @@ function sendLogin(obj) {
         if(res.status==403)return alert("Usuário ou senha incorretos!");
         else if(res.status >= 400)return alert("Erro ao realizar login!");
         else {
+            document.querySelector("body").style.cursor = "progress";
             var authorization = res.headers.get("authorization-token");
             setCookie("authorization-token",authorization);
             if(!remember.checked)setCookie("authorization-token",authorization, 1);
