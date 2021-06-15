@@ -1,8 +1,8 @@
-var imported = document.createElement('script');
-imported.src = 'script.js';
+var imported = document.createElement("script");
+imported.src = "script.js";
 document.head.appendChild(imported);
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     getCatalogo();
 })
 
@@ -11,7 +11,7 @@ async function getCatalogo() {
         const options = {
             headers: new Headers({ "authorization-token": getCookie("authorization-token") }),
         }
-        await fetch('http://localhost:3000/user/getFavorites', options).then(res => {
+        await fetch("http://localhost:3000/user/getFavorites", options).then(res => {
             return res.json()
         }).then(json => {
 

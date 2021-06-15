@@ -36,22 +36,22 @@ let emailCadOK=false;
 let passCadOK=false;
 let repeatPassCadOK=false;
 
-inputNameCad.addEventListener('blur', function() {
+inputNameCad.addEventListener("blur", function() {
     validaCampoVazio(inputNameCad, erroName, "name");
     ativaSubmit();
 });
 
-inputEmailCad.addEventListener('blur', function() {
+inputEmailCad.addEventListener("blur", function() {
     validaEmail(inputEmailCad.value);
     ativaSubmit();
 });
 
-inputPassCad.addEventListener('blur', function() {
+inputPassCad.addEventListener("blur", function() {
     validaCampoVazio(inputPassCad, erroPass, "pass");
     ativaSubmit();
 });
 
-inputRepeatPassCad.addEventListener('blur', function() {
+inputRepeatPassCad.addEventListener("blur", function() {
     validaPass(inputRepeatPassCad.value);
     ativaSubmit();
 });
@@ -103,9 +103,9 @@ function validaPass(RepeatPass) {
 
 function ativaSubmit() {
     if(nameCadOK && emailCadOK && passCadOK && repeatPassCadOK){
-        btnSign.removeAttribute('disabled');
+        btnSign.removeAttribute("disabled");
     }else{
-        btnSign.setAttribute('disabled', 'disabled');
+        btnSign.setAttribute("disabled", "disabled");
     }
 }
 
@@ -143,7 +143,7 @@ function deleteCookie(name) {
 
 //Sends
 
-btnSign.addEventListener('click', function() {
+btnSign.addEventListener("click", function() {
     let objCadastro = {
         "name": inputNameCad.value,
         "lastname": inputLastnameCad.value,
@@ -151,58 +151,66 @@ btnSign.addEventListener('click', function() {
         "password": inputPassCad.value
     };
     sendSign(objCadastro);
-    document.querySelector("body").style.cursor = 'progress';
+    document.querySelector("body").style.cursor = "progress";
 });
 
 function sendSign(obj) {
     const options = {
         method: "POST",
-        headers: new Headers({'content-type': 'application/json'}),
+        headers: new Headers({"content-type": "application/json"}),
         body: JSON.stringify(obj)
     }
 
     fetch("http://localhost:3000/user/register", options).then(res =>{
-        console.log(res);
-        alert("Usuário cadastrado com sucesso!");
-        sendLogin({"email": inputEmailCad.value, "password": inputPassCad.value});
+        if(res.status == 507) return alert("Usuário já cadastrado!");
+        else if(res.status >= 400) return alert("Infelizmente não foi possivel cadastrar o usuário!");
+        else {
+            console.log(res);
+            alert("Usuário cadastrado com sucesso!");
+            sendLogin({"email": inputEmailCad.value, "password": inputPassCad.value});
+        }
     }).catch(error=>{
         console.log(error);
         alert("Infelizmente não foi possivel cadastrar o usuário!");
     });
 }
 
-btnLogin.addEventListener('click', function() {
+btnLogin.addEventListener("click", function() {
     let objLogin = {
         "email": inputEmailLogin.value,
         "password": inputPassLogin.value,
         "remember": remember.checked
     };
     sendLogin(objLogin);
-    document.querySelector("body").style.cursor = 'progress';
+    document.querySelector("body").style.cursor = "progress";
 });
 
 function sendLogin(obj) {
     const options = {
         method: "POST",
-        headers: new Headers({'content-type': 'application/json'}),
+        headers: new Headers({"content-type": "application/json"}),
         body: JSON.stringify(obj)
     }
 
     fetch("http://localhost:3000/user/login", options).then(res =>{
-        var authorization = res.headers.get('authorization-token');
-        setCookie("authorization-token",authorization);
-        if(!remember.checked)setCookie("authorization-token",authorization, 1);
-        else setCookie("authorization-token",authorization);
-        location.reload();
+        if(res.status==403)return alert("Usuário ou senha incorretos!");
+        else if(res.status >= 400)return alert("Erro ao realizar login!");
+        else {
+            var authorization = res.headers.get("authorization-token");
+            setCookie("authorization-token",authorization);
+            if(!remember.checked)setCookie("authorization-token",authorization, 1);
+            else setCookie("authorization-token",authorization);
+            location.reload();
+        }
     }).catch(error=>{
         console.log(error);
-        alert("Email ou senha incorretos!");
+        alert("Erro ao realizar login!");
     });
 }
 
-btnLogout.addEventListener('click', function() {
+btnLogout.addEventListener("click", function() {
     logout();
-    document.querySelector("body").style.cursor = 'progress';
+    document.querySelector("body").style.cursor = "progress";
     console.log("Logout...");
     deleteCookie("authorization-token");
 });
@@ -211,30 +219,35 @@ function logout() {
     const options = {
         headers: new Headers({"authorization-token": getCookie("authorization-token")}),
     }
-    fetch('http://localhost:3000/user/logout', options);
+    fetch("http://localhost:3000/user/logout", options);
 }
 
-btnForgot.addEventListener('click', function() {
+btnForgot.addEventListener("click", function() {
     let objForgot = {
         "email": inputEmailForgot.value
     }
     sendResetPassword(objForgot);
-    document.querySelector("body").style.cursor = 'progress';
+    document.querySelector("body").style.cursor = "progress";
 });
 
 function sendResetPassword(obj) {
     const options = {
         method: "POST",
-        headers: new Headers({'content-type': 'application/json'}),
+        headers: new Headers({"content-type": "application/json"}),
         body: JSON.stringify(obj)
     }
 
     fetch("http://localhost:3000/auth/forgot_password", options).then(res =>{
-        alert("Solicitação realizada, verifique seu email!");
-        location.reload();
+        if(res.status == 404) return alert("Usuário não encontrado!");
+        else if(res.status == 400) return alert("Não foi possivel enviar o email para redefinição de senha!")
+        else if(res.status >= 400) return alert("Infelizmente não foi solicitar a redefinição de senha!");
+        else {
+            alert("Solicitação realizada, verifique seu email!");
+            location.reload();
+        }
     }).catch(error=>{
         console.log(error);
-        alert("Infelizmente não foi solicitar a redefinição de senha");
+        alert("Infelizmente não foi solicitar a redefinição de senha!");
     });
 }
 

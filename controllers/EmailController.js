@@ -26,7 +26,7 @@ function sendMail(req,res) {
         res.send("Mensagem enviada com sucesso!");
     }).catch(error=>{
         console.error(error); 
-        res.send("Não foi possivel enviar sua mensagem :(")
+        res.status(400).send("Não foi possivel enviar sua mensagem :(")
     })
 }
 

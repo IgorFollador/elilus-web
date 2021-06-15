@@ -10,7 +10,7 @@ const mailer = require('../modules/mailer');
 module.exports = {
     register: async function (req, res) {
         const selectUser = await User.findOne({where: {email: req.body.email}});
-        if(selectUser) return res.status(400).send('Email já cadastrado!');
+        if(selectUser) return res.status(507).send('Email já cadastrado!');
         const user = new User({
             name: req.body.name,
             lastname: req.body.lastname,
@@ -31,10 +31,10 @@ module.exports = {
 
     login: async function (req, res) {
         const selectUser = await User.findOne({where: {email: req.body.email}});
-        if(!selectUser) return res.status(401).send('Email ou senha incorretos');
+        if(!selectUser) return res.status(403).send('Email ou senha incorretos');
         
         const passwordAndUserMatch = bcrypt.compareSync(req.body.password, selectUser.password);
-        if(!passwordAndUserMatch) return res.status(401).send('Email ou senha incorretos');
+        if(!passwordAndUserMatch) return res.status(403).send('Email ou senha incorretos');
         var token;
         if(req.body.remember){
             token = jwt.sign({userId: selectUser.id}, process.env.TOKEN_SECRET);
@@ -75,11 +75,11 @@ module.exports = {
 
         if(selectFavorite){
             selectFavorite.destroy();
-            return res.send("Produto excluido")
+            return res.status(200).send("Produto excluido")
         } 
         try{
             await favorites.save();
-            res.send("Produto cadastrado");
+            res.status(201).send("Produto cadastrado");
         }catch (error) {
             res.status(400).send(error)
         }
@@ -89,7 +89,7 @@ module.exports = {
         try {
             const email = req.body.email;
             const selectUser = await User.findOne({where: {email}});
-            if(!selectUser) return res.status(400).send('Email não encontrado!');
+            if(!selectUser) return res.status(404).send('Email não encontrado!');
 
             const token = crypto.randomBytes(20).toString('hex');
 
@@ -110,12 +110,12 @@ module.exports = {
             }, (err) => {
                 if(err){
                     console.log(err);
-                    return res.status(400).send({ error: 'Não foi possivel enviar o email forgot_password' });
+                    return res.status(400).send({ error: 'Não foi possivel enviar o email para redefinição de senha' });
                 }
                 res.send();
             })
         } catch (error) {
-            res.status(400).send({ error: 'Erro ao redefinir senha, tente novamente'})
+            res.status(502).send({ error: 'Erro ao gerar token, tente novamente'})
         }
     },
 
@@ -125,20 +125,20 @@ module.exports = {
             const selectUser = await User.findOne({where: { email }});
 
             if(!selectUser)
-                return res.status(400).send('Email não encontrado!');
+                return res.status(404).send('Email não encontrado!');
 
             if(token != selectUser.password_reset_token)
-                return res.status(400).send('Token inválido!');
+                return res.status(401).send('Token inválido!');
 
             if(Date.now() > selectUser.password_reset_expires)
-                return res.status(400).send('Token expirado, gere um novo!');
+                return res.status(401).send('Token expirado, gere um novo!');
             
             selectUser.password = bcrypt.hashSync(password);
             selectUser.save();
             res.send();
         } catch (error) {
             console.log(error);
-            res.status(400).send({ error: 'Erro ao redefinir senha, tente novamente'})
+            res.status(400).send({ error: 'Erro ao redefinir senha, tente novamente!'})
         }
     }
 }

@@ -10,21 +10,21 @@ var emailOK=false;
 var messageOK=false;
 var telephoneOK=false;
 
-inputName.addEventListener('blur', function() {
+inputName.addEventListener("blur", function() {
     validaCampoVazio(inputName, erroNameContact, "name");
     ativaSubmit();
 });
 
-inputEmail.addEventListener('blur', function() {
+inputEmail.addEventListener("blur", function() {
     validaEmail(inputEmail.value);
     ativaSubmit();
 });
 
-inputTelephone.addEventListener('blur', function() {
+inputTelephone.addEventListener("blur", function() {
     inputTelephone.value = validaTelephone(inputTelephone.value);
 })
 
-inputMessage.addEventListener('keyup', function() {
+inputMessage.addEventListener("keyup", function() {
     validaCampoVazio(inputMessage, erroMessage, "message");
     ativaSubmit();
 });
@@ -74,13 +74,13 @@ function validaTelephone(telephone){
 function ativaSubmit() {
     
     if(nameOK && emailOK && messageOK){
-        btnEntraContato.removeAttribute('disabled');
+        btnEntraContato.removeAttribute("disabled");
     }else{
-        btnEntraContato.setAttribute('disabled', 'disabled');
+        btnEntraContato.setAttribute("disabled", "disabled");
     }
 }
 
-btnEntraContato.addEventListener('click', function(){
+btnEntraContato.addEventListener("click", function(){
 
     let objContato = {
         "name": inputName.value,
@@ -90,21 +90,24 @@ btnEntraContato.addEventListener('click', function(){
     };
     
     sendMail(objContato);
-    document.querySelector("body").style.cursor = 'progress';
+    document.querySelector("body").style.cursor = "progress";
 }); 
 
 function sendMail(obj) {
 
     const options = {
         method: "POST",
-        headers: new Headers({'content-type': 'application/json'}),
+        headers: new Headers({"content-type": "application/json"}),
         body: JSON.stringify(obj)
     }
 
     fetch("http://localhost:3000/user/sendMail", options).then(res =>{
-        console.log(res);
-        alert("Mensagem enviada com sucesso!\nEntraremos em contato...");
-        location.reload();
+        if(res.status >= 400) return alert("Infelizmente não foi possivel enviar sua mensagem :(");
+        else {
+            console.log(res);
+            alert("Mensagem enviada com sucesso!\nEntraremos em contato...");
+            location.reload();
+        }
     }).catch(error=>{
         console.log(error);
         alert("Infelizmente não foi possivel enviar sua mensagem :(");
