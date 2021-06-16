@@ -17,9 +17,9 @@
 }
 
 .text p {
-    margin-top: 20px;
+    margin-top: 15px;
     text-indent: 4em;
-    line-height: 1.5em;
+    line-height: 1.45em;
 }
 
 .map {
@@ -79,6 +79,11 @@
     margin-top: 7px;
     padding: 5px;
     width: 100%;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+    font-style: italic;
 }
 
 #contact span {
