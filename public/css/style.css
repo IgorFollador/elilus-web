@@ -71,6 +71,7 @@ body {
 }
 
 #logged {
+    margin-left: 25px;
     flex-wrap: nowrap;
 }
 
