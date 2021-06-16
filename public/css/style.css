@@ -38,6 +38,10 @@ body {
     min-width: 133px;
 }
 
+#btnFav:hover {
+    background-color: rgb(165, 42, 42);
+}
+
 #navbarScroll form {
     margin-left: 30px;
     margin-right: 30px;
