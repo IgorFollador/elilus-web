@@ -1,3 +1,7 @@
 .container-fluid {
     width: auto;
 }
+
+.h-48 {
+    height: 48%;
+}

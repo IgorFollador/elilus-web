@@ -67,13 +67,12 @@ body {
 }
 
 #logged {
-    display: flex !important;
     flex-wrap: nowrap;
 }
 
 .container-fluid {
     display: flex;
-    flex-wrap: nowrap !important;
+    flex-wrap: nowrap;
 }
 
 /*MODAL Login/Sign*/

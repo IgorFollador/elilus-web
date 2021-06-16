@@ -4,7 +4,7 @@ function validaSession() {
         logged.style = "display: none;"
     }else {
         btnModal.style = "display: none;"
-        logged.style = "display: block;"
+        logged.style = "display: flex;"
     }
 }
 
