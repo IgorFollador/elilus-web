@@ -5,3 +5,12 @@
 .h-48 {
     height: 48%;
 }
+
+.item{
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.item:hover{
+    filter: brightness(80%);
+}

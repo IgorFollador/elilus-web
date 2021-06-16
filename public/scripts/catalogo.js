@@ -1,8 +1,8 @@
-var imported = document.createElement('script');
-imported.src = 'script.js';
+var imported = document.createElement("script");
+imported.src = "script.js";
 document.head.appendChild(imported);
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     getCategories();
     getProducts();  
 })
@@ -12,7 +12,7 @@ async function getProducts() {
         const options = {
             headers: new Headers({"authorization-token": getCookie("authorization-token")}),
         }
-        await fetch('http://localhost:3000/user/listProducts', options).then(res => {
+        await fetch("http://localhost:3000/user/listProducts", options).then(res => {
             return res.json()
         }).then(json => {
             let favs;
@@ -50,7 +50,7 @@ async function getProducts() {
         });
     } catch (error) {
         console.log(error)
-        alert('Não foi possível acessar nosso catálogo!')
+        alert("Não foi possível acessar nosso catálogo!")
     }
 }
 
@@ -59,7 +59,7 @@ async function getCategories() {
         const options = {
             headers: new Headers({"authorization-token": getCookie("authorization-token")}),
         }
-        await fetch('http://localhost:3000/user/listCategories', options).then(res => {
+        await fetch("http://localhost:3000/user/listCategories", options).then(res => {
             return res.json()
         }).then(json => {
             let categoriesElements = '';

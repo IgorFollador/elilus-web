@@ -70,11 +70,6 @@ body {
     flex-wrap: nowrap;
 }
 
-.container-fluid {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
 /*MODAL Login/Sign*/
 .modal-title{
     font-size: 25px;
