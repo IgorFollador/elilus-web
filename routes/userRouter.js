@@ -27,6 +27,4 @@ router.get('/listCategories', CategoryController.listAll);
 
 router.get('/listProducts', ProductController.listAll);
 
-router.get('/search', express.json(), ProductController.searchAll)
-
 module.exports = router;

@@ -43,8 +43,9 @@
 							<a class="nav-link" href="./sobre.html">Sobre</a>
 						</li>
 					</ul>
-					<form method="GET" class="d-flex">
-						<input class="form-control me-1" type="search" placeholder="Buscar..." aria-label="Search">
+					<form action="/search" method="GET" class="d-flex">
+						<input id="inputSearch" class="form-control me-1" type="search" placeholder="Buscar..."
+							aria-label="Search" name="q"/>
 						<button class="btn" id="btnSearch" type="submit"><img src="./img/vectorlupa.png"
 								alt="Buscar..."></button>
 					</form>

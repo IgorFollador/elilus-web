@@ -15,7 +15,7 @@ var btnSign = document.querySelector("#btnSign");
 var btnLogin = document.querySelector("#btnLogin"); 
 var btnLogout = document.querySelector("#btnLogout"); 
 var btnForgot = document.querySelector("#btnForgot");
-var btnSearch = document.querySelector("btnSearch");
+var btnSearch = document.querySelector("#btnSearch");
 //INPUTS FOR LOGIN
 var inputEmailLogin = document.querySelector("#email"); 
 var inputPassLogin = document.querySelector("#password");
@@ -28,8 +28,6 @@ var inputPassCad = document.querySelector("#passwordCad");
 var inputRepeatPassCad = document.querySelector("#repeatPassword");
 //INPUTS FOR FORGOT PASSWORD
 var inputEmailForgot = document.querySelector("#emailForgot");
-//INPUT SEARCH
-var inputSearch = document.querySelector("inputSearch");
 //VALIDATIONS FOR REGISTER
 let nameCadOK=false;
 let emailCadOK=false;
@@ -251,4 +249,6 @@ function sendResetPassword(obj) {
     });
 }
 
-
+btnSearch.addEventListener("click", function() {
+    document.querySelector("body").style.cursor = 'progress';
+})
