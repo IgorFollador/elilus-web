@@ -6,8 +6,8 @@ module.exports = {
     User: async function (req, res, next) {
         const { cookies } = req;
         const token_acess = cookies.authorization_token;
-        const selectBlacklist = await Blacklist.findOne({where: {token:token_acess}})
         if(!token_acess) return res.status(401).send("Acesso negado!")
+        const selectBlacklist = await Blacklist.findOne({where: {token:token_acess}})
         if(selectBlacklist) return res.status(401).send("Acesso negado!")
         jwt.verify(token_acess, process.env.TOKEN_SECRET, (err, decoded) => {
             if(err) return res.status(401).send({ error: 'Token inválido '});
