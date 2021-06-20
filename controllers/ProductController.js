@@ -22,16 +22,19 @@ module.exports = {
         });
         const products = JSON.parse(JSON.stringify(productsDB));
         ///Verificação dos produtos favoritados
-        const token = req.header('authorization_token');
-        if (token != 'null' && token != null) {
-            const userId = jwt_decode(req.header('authorization_token'));
+        const { cookies } = req;
+        if ('authorization_token' in cookies) {
+            const token = cookies.authorization_token;
+            if (token != 'null' && token != null) {
+                const userId = jwt_decode(token);
 
-            products.forEach(async product => {
-                product.fav = false;
-                const selectFavorite = await Favorite.findOne({ where: { id_product: product.id, id_user: userId.userId } });
-                if (selectFavorite)
-                    product.fav = true;
-            });
+                products.forEach(async product => {
+                    product.fav = false;
+                    const selectFavorite = await Favorite.findOne({ where: { id_product: product.id, id_user: userId.userId } });
+                    if (selectFavorite)
+                        product.fav = true;
+                });
+            }
         }
         setTimeout(function () {
             return res.json(products);

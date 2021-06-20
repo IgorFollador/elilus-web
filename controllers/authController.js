@@ -4,7 +4,8 @@ const User = require('../models/User');
 
 module.exports = {
     User: async function (req, res, next) {
-        const token_acess = req.header('authorization_token');
+        const { cookies } = req;
+        const token_acess = cookies.authorization_token;
         const selectBlacklist = await Blacklist.findOne({where: {token:token_acess}})
         if(!token_acess) return res.status(401).send("Acesso negado!")
         if(selectBlacklist) return res.status(401).send("Acesso negado!")

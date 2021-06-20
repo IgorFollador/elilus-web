@@ -44,7 +44,8 @@ module.exports = {
     },
 
     logout: async function (req, res) {
-        const token = req.header('authorization_token');
+        const { cookies } = req;
+        const token = cookies.authorization_token;
         const blacklist = new Blacklist({
             token:token
         })

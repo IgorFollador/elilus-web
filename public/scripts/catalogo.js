@@ -1,5 +1,5 @@
 var imported = document.createElement("script");
-imported.src = "script.js";
+imported.src = "./scritps/script.js";
 document.head.appendChild(imported);
 
 document.addEventListener("DOMContentLoaded", () => {
