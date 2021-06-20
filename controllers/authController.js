@@ -4,7 +4,7 @@ const User = require('../models/User');
 
 module.exports = {
     User: async function (req, res, next) {
-        const token_acess = req.header('authorization-token');
+        const token_acess = req.header('authorization_token');
         const selectBlacklist = await Blacklist.findOne({where: {token:token_acess}})
         if(!token_acess) return res.status(401).send("Acesso negado!")
         if(selectBlacklist) return res.status(401).send("Acesso negado!")
@@ -22,7 +22,7 @@ module.exports = {
 
         if(!selectUser.admin) return res.status(400).send('Usuário não é adminstrador');
 
-        const token_acess = req.header('authorization-token');
+        const token_acess = req.header('authorization_token');
         const selectBlacklist = await Blacklist.findOne({where: {token:token_acess}})
         if(!token_acess) return res.status(401).send("Acesso negado!")
         if(selectBlacklist) return res.status(401).send("Acesso negado!")

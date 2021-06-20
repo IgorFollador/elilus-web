@@ -21,7 +21,7 @@ module.exports = {
         try{
             const savedUser = await user.save();
             const token = jwt.sign({id: user.id}, process.env.TOKEN_SECRET);
-            res.header('authorization-token', token);
+            res.header('authorization_token', token);
             user.password = undefined;
             res.send(savedUser);
         }catch (error) {
@@ -39,12 +39,12 @@ module.exports = {
         if(req.body.remember){
             token = jwt.sign({userId: selectUser.id}, process.env.TOKEN_SECRET);
         }else token = jwt.sign({userId: selectUser.id}, process.env.TOKEN_SECRET, {expiresIn: 172800});
-        res.header('authorization-token', token);
+        res.header('authorization_token', token);
         res.send("Usuário logado!");
     },
 
     logout: async function (req, res) {
-        const token = req.header('authorization-token');
+        const token = req.header('authorization_token');
         const blacklist = new Blacklist({
             token:token
         })

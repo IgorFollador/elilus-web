@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function getCatalogo() {
     try {
         const options = {
-            headers: new Headers({ "authorization-token": getCookie("authorization-token") }),
+            headers: new Headers({ "authorization_token": getCookie("authorization_token") }),
         }
         await fetch("http://localhost:3000/user/getFavorites", options).then(res => {
             return res.json()

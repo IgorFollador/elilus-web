@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function getProducts() {
     try {
         const options = {
-            headers: new Headers({"authorization-token": getCookie("authorization-token")}),
+            headers: new Headers({"authorization_token": getCookie("authorization_token")}),
         }
         await fetch("http://localhost:3000/user/listProducts", options).then(res => {
             return res.json()
@@ -57,7 +57,7 @@ async function getProducts() {
 async function getCategories() {
     try {
         const options = {
-            headers: new Headers({"authorization-token": getCookie("authorization-token")}),
+            headers: new Headers({"authorization_token": getCookie("authorization_token")}),
         }
         await fetch("http://localhost:3000/user/listCategories", options).then(res => {
             return res.json()

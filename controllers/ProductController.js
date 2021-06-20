@@ -22,9 +22,9 @@ module.exports = {
         });
         const products = JSON.parse(JSON.stringify(productsDB));
         ///Verificação dos produtos favoritados
-        const token = req.header('authorization-token');
+        const token = req.header('authorization_token');
         if (token != 'null' && token != null) {
-            const userId = jwt_decode(req.header('authorization-token'));
+            const userId = jwt_decode(req.header('authorization_token'));
 
             products.forEach(async product => {
                 product.fav = false;
@@ -61,10 +61,10 @@ module.exports = {
             if (products.count == 0) {
                 return res.render('../resources/views/search', { results: 0, listSearch: [], img: '../img/not_found_search.png' });
             }
-            ///Verifica quais produtos estao favoritados
-            if (req.headers.cookie) {
-                let token = "";
-                for (var i = 20; i < req.headers.cookie.length; i++) token += req.headers.cookie[i]; //separa o token
+            ///Verificação dos produtos favoritados
+            const { cookies } = req;
+            if ('authorization_token' in cookies) {
+                const token = cookies.authorization_token;
                 if (token != 'null' && token != null) {
                     const userId = jwt_decode(token);
 
@@ -76,6 +76,7 @@ module.exports = {
                     });
                 }
             }
+
 
             setTimeout(function () {
                 //GERANDO LISTA DE BUSCA
@@ -117,6 +118,7 @@ module.exports = {
         }
     }
 }
+
 
 function simplify(text) {
     const separators = new RegExp(`s,.;:()-'+`);

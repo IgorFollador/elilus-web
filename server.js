@@ -3,6 +3,7 @@ require('./database');
 const express = require('express');
 const app = express();
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 const ProductController = require('./controllers/ProductController')
 
@@ -20,6 +21,8 @@ app.set('view engine', 'ejs');
 //     if(req.headers['x-forwarded-proto'] == "https") next();
 //     else res.redirect("https://" + req.headers.host + req.originalUrl);
 // });
+
+app.use(cookieParser());
 
 app.use('/', express.static(path.join(__dirname,'public')));
 

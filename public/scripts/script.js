@@ -1,4 +1,4 @@
-let auth = getCookie("authorization-token");
+let auth = getCookie("authorization_token");
 function validaSession() {
     if(auth==null || auth=="null") {
         logged.style = "display: none;"
@@ -194,10 +194,10 @@ function sendLogin(obj) {
         else if(res.status >= 400)return alert("Erro ao realizar login!");
         else {
             document.querySelector("body").style.cursor = "progress";
-            var authorization = res.headers.get("authorization-token");
-            setCookie("authorization-token",authorization);
-            if(!remember.checked)setCookie("authorization-token",authorization, 1);
-            else setCookie("authorization-token",authorization);
+            var authorization = res.headers.get("authorization_token");
+            setCookie("authorization_token",authorization);
+            if(!remember.checked)setCookie("authorization_token",authorization, 1);
+            else setCookie("authorization_token",authorization);
             location.reload();
         }
     }).catch(error=>{
@@ -210,12 +210,12 @@ btnLogout.addEventListener("click", function() {
     logout();
     document.querySelector("body").style.cursor = "progress";
     console.log("Logout...");
-    deleteCookie("authorization-token");
+    deleteCookie("authorization_token");
 });
 
 function logout() {
     const options = {
-        headers: new Headers({"authorization-token": getCookie("authorization-token")}),
+        headers: new Headers({"authorization_token": getCookie("authorization_token")}),
     }
     fetch("http://localhost:3000/user/logout", options);
 }
