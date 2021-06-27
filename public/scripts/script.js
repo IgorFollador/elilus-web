@@ -210,7 +210,10 @@ btnLogout.addEventListener("click", function() {
     logout();
     document.querySelector("body").style.cursor = "progress";
     console.log("Logout...");
-    deleteCookie("authorization_token");
+    setTimeout(() => {
+        deleteCookie("authorization_token");
+        window.location.href="./";
+    }, 150);
 });
 
 function logout() {
