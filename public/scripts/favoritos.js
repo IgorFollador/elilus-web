@@ -41,7 +41,7 @@ async function getCatalogo() {
                 document.getElementById("products").innerHTML = productElements;                
             } else { 
                 document.getElementById("products").innerHTML = `<div class="d-flex justify-content-center" style="witdh:100%; heigth: auto;">
-                                                                    <img src="../img/not_found_favorites.png" style="min-width:250px; max-width:620px; heigth: auto;" />
+                                                                    <img src="../img/not_found_favorites.png" style="min-width:250px; max-width:650px; heigth: auto;" />
                                                                 </div>`;
             }
         })
